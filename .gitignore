@@ -1,0 +1,9 @@
+#ignorables
+node_modules/
+.idea/
+.directory
+*.*swp
+*.swp
+/nodejs/nbproject/private/
+/nodejs-2/hydra-core/nbproject/private/
+.vscode/

@@ -1,0 +1,17 @@
+{
+  "name": "lab-rabbitMQ",
+  "version": "0.0.1",
+  "description": "An AMQP compliant client",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "messaging"
+  ],
+  "author": "Rizky Farhan",
+  "license": "MIT",
+  "dependencies": {
+    "amqplib": "*"
+  }
+}

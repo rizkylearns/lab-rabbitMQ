@@ -1,0 +1,1 @@
+Set the environment variable “RABBITMQ_BASE” to “c:\rabbitmq”, uninstall the service (rabbitmq-service.bat remove) and install the service again (rabbitmq-service.bat install).
