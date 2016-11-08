@@ -1,298 +1,13 @@
 <?xml version="1.0"?>
 
 <st-source>
-<time-stamp>From VisualWorks®, 7.9.1 of 18 October 2012 on 8 November 2016 at 10:43:41 AM</time-stamp>
+<time-stamp>From VisualWorks®, 7.9.1 of 18 October 2012 on 8 November 2016 at 10:50:39 AM</time-stamp>
 
 
 <component-created>
 <name>Amqp</name> <type>package</type>
 </component-created><!-- Package Amqp* -->
 
-
-<class>
-<name>AmqpChannelHandler</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>connection channelNumber inbound state closeReason asyncMap currentCommand remainingBytes bodyPieces </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpCodec</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>stream </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpCommand</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>method properties body </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpConnection</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>socket codec credentials parameters virtualHost isOpen closeReason channels nextChannel protocolClass </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpConnectionParameters</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>channelMax frameMax heartbeat </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpEntityDefinition</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>name xml index </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Tools</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpClassDefinition</name>
-<environment>Smalltalk</environment>
-<super>AmqpEntityDefinition</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>methods contentProperties </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Tools</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpFieldDefinition</name>
-<environment>Smalltalk</environment>
-<super>AmqpEntityDefinition</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>container domain reserved </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Tools</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpMethodDefinition</name>
-<environment>Smalltalk</environment>
-<super>AmqpEntityDefinition</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>classDef fields hasContents serverMethod clientMethod synchronous responses </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Tools</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpFrame</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>frameType channelNumber </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpContentBodyFrame</name>
-<environment>Smalltalk</environment>
-<super>AmqpFrame</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>fragment </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpContentHeaderFrame</name>
-<environment>Smalltalk</environment>
-<super>AmqpFrame</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>classId bodySize properties </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpHeartbeatFrame</name>
-<environment>Smalltalk</environment>
-<super>AmqpFrame</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpMethodFrame</name>
-<environment>Smalltalk</environment>
-<super>AmqpFrame</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>methodId method </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpProtocolHeaderFrame</name>
-<environment>Smalltalk</environment>
-<super>AmqpFrame</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>majorVersion minorVersion revision transportVersion isObsoleteProtocolVariant </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpPlainCredentials</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>username password </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>AmqpProtocol</name>
-<environment>Smalltalk</environment>
-<super>Core.Object</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars>classIds methodIds </class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-Base</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocol</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp091</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocol</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-091</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
 
 <class>
 <name>AmqpProtocolMethod</name>
@@ -304,606 +19,6 @@
 <class-inst-vars></class-inst-vars>
 <imports></imports>
 <category>Amqp-Protocol-Base</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08AccessRequest</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>realm exclusive passive active write read </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08AccessRequestOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>ticket </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicAck</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>deliveryTag multiple </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicCancel</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>consumerTag nowait </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicCancelOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>consumerTag </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicConsume</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>ticket queue consumerTag noLocal noAck exclusive nowait </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicConsumeOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>consumerTag </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicDeliver</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>consumerTag deliveryTag redelivered exchange routingKey </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicGet</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>ticket queue noAck </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicGetEmpty</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>clusterId </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicGetOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>deliveryTag redelivered exchange routingKey messageCount </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicPublish</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>ticket exchange routingKey mandatory immediate </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicQos</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>prefetchSize prefetchCount global </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicQosOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicRecover</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>requeue </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicReject</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>deliveryTag requeue </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08BasicReturn</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>replyCode replyText exchange routingKey </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelAlert</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>replyCode replyText details </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelClose</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>replyCode replyText classId methodId </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelCloseOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelFlow</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>active </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelFlowOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>active </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelOpen</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>outOfBand </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ChannelOpenOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionClose</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>replyCode replyText classId methodId </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionCloseOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionOpen</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>virtualHost capabilities insist </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionOpenOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>knownHosts </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionRedirect</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>host knownHosts </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionSecure</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>challenge </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionSecureOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>response </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionStart</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>versionMajor versionMinor serverProperties mechanisms locales </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionStartOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>clientProperties mechanism response locale </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionTune</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>channelMax frameMax heartbeat </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ConnectionTuneOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>channelMax frameMax heartbeat </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08DtxSelect</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08DtxSelectOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08DtxStart</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>dtxIdentifier </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08DtxStartOk</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars></inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
-<attributes>
-<package>Amqp</package>
-</attributes>
-</class>
-
-<class>
-<name>Amqp08ExchangeDeclare</name>
-<environment>Smalltalk</environment>
-<super>AmqpProtocolMethod</super>
-<private>false</private>
-<indexed-type>none</indexed-type>
-<inst-vars>ticket exchange type passive durable autoDelete internal nowait arguments </inst-vars>
-<class-inst-vars></class-inst-vars>
-<imports></imports>
-<category>Amqp-Protocol-08</category>
 <attributes>
 <package>Amqp</package>
 </attributes>
@@ -2649,6 +1764,4141 @@
 </attributes>
 </class>
 
+<class>
+<name>AmqpChannelHandler</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>connection channelNumber inbound state closeReason asyncMap currentCommand remainingBytes bodyPieces </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpCodec</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>stream </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpCommand</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>method properties body </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpConnection</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>socket codec credentials parameters virtualHost isOpen closeReason channels nextChannel protocolClass </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpConnectionParameters</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>channelMax frameMax heartbeat </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpEntityDefinition</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>name xml index </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Tools</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpClassDefinition</name>
+<environment>Smalltalk</environment>
+<super>AmqpEntityDefinition</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>methods contentProperties </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Tools</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpFieldDefinition</name>
+<environment>Smalltalk</environment>
+<super>AmqpEntityDefinition</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>container domain reserved </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Tools</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpMethodDefinition</name>
+<environment>Smalltalk</environment>
+<super>AmqpEntityDefinition</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>classDef fields hasContents serverMethod clientMethod synchronous responses </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Tools</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpFrame</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>frameType channelNumber </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpContentBodyFrame</name>
+<environment>Smalltalk</environment>
+<super>AmqpFrame</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>fragment </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpContentHeaderFrame</name>
+<environment>Smalltalk</environment>
+<super>AmqpFrame</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>classId bodySize properties </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpHeartbeatFrame</name>
+<environment>Smalltalk</environment>
+<super>AmqpFrame</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpMethodFrame</name>
+<environment>Smalltalk</environment>
+<super>AmqpFrame</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>methodId method </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpProtocolHeaderFrame</name>
+<environment>Smalltalk</environment>
+<super>AmqpFrame</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>majorVersion minorVersion revision transportVersion isObsoleteProtocolVariant </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpPlainCredentials</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>username password </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>AmqpProtocol</name>
+<environment>Smalltalk</environment>
+<super>Core.Object</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars>classIds methodIds </class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-Base</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocol</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<comment>
+<class-id>Amqp08</class-id>
+<body>this class and all other classes in this Amqp package are ported from www.squeaksource.com/AMQP.html </body>
+</comment>
+
+<class>
+<name>Amqp091</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocol</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-091</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08AccessRequest</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>realm exclusive passive active write read </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08AccessRequestOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>ticket </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicAck</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>deliveryTag multiple </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicCancel</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>consumerTag nowait </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicCancelOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>consumerTag </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicConsume</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>ticket queue consumerTag noLocal noAck exclusive nowait </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicConsumeOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>consumerTag </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicDeliver</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>consumerTag deliveryTag redelivered exchange routingKey </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicGet</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>ticket queue noAck </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicGetEmpty</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>clusterId </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicGetOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>deliveryTag redelivered exchange routingKey messageCount </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicPublish</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>ticket exchange routingKey mandatory immediate </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicQos</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>prefetchSize prefetchCount global </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicQosOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicRecover</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>requeue </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicReject</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>deliveryTag requeue </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08BasicReturn</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>replyCode replyText exchange routingKey </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelAlert</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>replyCode replyText details </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelClose</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>replyCode replyText classId methodId </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelCloseOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelFlow</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>active </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelFlowOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>active </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelOpen</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>outOfBand </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ChannelOpenOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionClose</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>replyCode replyText classId methodId </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionCloseOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionOpen</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>virtualHost capabilities insist </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionOpenOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>knownHosts </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionRedirect</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>host knownHosts </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionSecure</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>challenge </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionSecureOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>response </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionStart</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>versionMajor versionMinor serverProperties mechanisms locales </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionStartOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>clientProperties mechanism response locale </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionTune</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>channelMax frameMax heartbeat </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ConnectionTuneOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>channelMax frameMax heartbeat </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08DtxSelect</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08DtxSelectOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08DtxStart</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>dtxIdentifier </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08DtxStartOk</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars></inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<class>
+<name>Amqp08ExchangeDeclare</name>
+<environment>Smalltalk</environment>
+<super>AmqpProtocolMethod</super>
+<private>false</private>
+<indexed-type>none</indexed-type>
+<inst-vars>ticket exchange type passive durable autoDelete internal nowait arguments </inst-vars>
+<class-inst-vars></class-inst-vars>
+<imports></imports>
+<category>Amqp-Protocol-08</category>
+<attributes>
+<package>Amqp</package>
+</attributes>
+</class>
+
+<methods>
+<class-id>AmqpProtocolMethod</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">hasContents		self subclassResponsibility</body>
+
+<body package="Amqp">acceptableResponseClasses		self subclassResponsibility</body>
+
+<body package="Amqp">codecMethodId		self subclassResponsibility</body>
+
+<body package="Amqp">decodeFrom: codec		self subclassResponsibility</body>
+
+<body package="Amqp">encodeOn: codec		self subclassResponsibility</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08ExchangeDeclareOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^2621451</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08ExchangeDelete</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">ifUnused		^ifUnused</body>
+</methods>
+
+<methods>
+<class-id>Amqp08ExchangeDelete</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ExchangeDeleteOk</body>
+
+<body package="Amqp">codecMethodId		^2621460</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	nowait := (bitBuffer bitAnd: 2) ~= 0</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08ExchangeDeleteOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^2621461</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileAck</class-id> <category>accessing</category>
+
+<body package="Amqp">multiple: aValue		multiple := aValue</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">multiple		^multiple</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileAck</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	multiple := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587610</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileCancel</class-id> <category>accessing</category>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">nowait		^nowait</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileCancel</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileCancelOk</body>
+
+<body package="Amqp">codecMethodId		^4587550</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileCancelOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileCancelOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587551</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileConsume</class-id> <category>accessing</category>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">noAck		^noAck</body>
+
+<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+
+<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">noAck: aValue		noAck := aValue</body>
+
+<body package="Amqp">noLocal		^noLocal</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileConsume</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileConsumeOk</body>
+
+<body package="Amqp">codecMethodId		^4587540</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	noAck := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	nowait := (bitBuffer bitAnd: 8) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileConsumeOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileConsumeOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587541</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileDeliver</class-id> <category>accessing</category>
+
+<body package="Amqp">redelivered		^redelivered</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">identifier		^identifier</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">identifier: aValue		identifier := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileDeliver</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587600</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	identifier := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextShortstrPut: identifier</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileOpen</class-id> <category>accessing</category>
+
+<body package="Amqp">identifier: aValue		identifier := aValue</body>
+
+<body package="Amqp">contentSize: aValue		contentSize := aValue</body>
+
+<body package="Amqp">contentSize		^contentSize</body>
+
+<body package="Amqp">identifier		^identifier</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileOpen</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	identifier := codec nextShortstr.	contentSize := codec nextLonglong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: identifier.	codec nextLonglongPut: contentSize</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileOpenOk</body>
+
+<body package="Amqp">codecMethodId		^4587560</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileOpenOk</class-id> <category>accessing</category>
+
+<body package="Amqp">stagedSize		^stagedSize</body>
+
+<body package="Amqp">stagedSize: aValue		stagedSize := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileOpenOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileStage</body>
+
+<body package="Amqp">codecMethodId		^4587561</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	stagedSize := codec nextLonglong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: stagedSize</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FilePublish</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">immediate: aValue		immediate := aValue</body>
+
+<body package="Amqp">identifier: aValue		identifier := aValue</body>
+
+<body package="Amqp">mandatory		^mandatory</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">immediate		^immediate</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">identifier		^identifier</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FilePublish</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587580</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0.	identifier := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: identifier</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileQos</class-id> <category>accessing</category>
+
+<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
+
+<body package="Amqp">prefetchSize		^prefetchSize</body>
+
+<body package="Amqp">global		^global</body>
+
+<body package="Amqp">global: aValue		global := aValue</body>
+
+<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
+
+<body package="Amqp">prefetchCount		^prefetchCount</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileQos</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileQosOk</body>
+
+<body package="Amqp">codecMethodId		^4587530</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileQosOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587531</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileReject</class-id> <category>accessing</category>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">requeue		^requeue</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">requeue: aValue		requeue := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileReject</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^4587620</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileReturn</class-id> <category>accessing</category>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">replyText		^replyText</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileReturn</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^4587590</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileStage</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^4587570</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueBind</class-id> <category>accessing</category>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueueBind</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueBindOk</body>
+
+<body package="Amqp">codecMethodId		^3276820</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0.	arguments := codec nextTable</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueBindOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276821</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueDeclare</class-id> <category>accessing</category>
+
+<body package="Amqp">autoDelete: aValue		autoDelete := aValue</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">durable		^durable</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">passive		^passive</body>
+
+<body package="Amqp">durable: aValue		durable := aValue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">autoDelete		^autoDelete</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">passive: aValue		passive := aValue</body>
+
+<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueueDeclare</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueDeclareOk</body>
+
+<body package="Amqp">codecMethodId		^3276810</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	autoDelete := (bitBuffer bitAnd: 8) ~= 0.	nowait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueDeclareOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">consumerCount: aValue		consumerCount := aValue</body>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">consumerCount		^consumerCount</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueueDeclareOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276811</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	queue := codec nextShortstr.	messageCount := codec nextLong.	consumerCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: queue.	codec nextLongPut: messageCount.	codec nextLongPut: consumerCount</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueDelete</class-id> <category>accessing</category>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">ifEmpty		^ifEmpty</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">ifUnused		^ifUnused</body>
+
+<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">ifEmpty: aValue		ifEmpty := aValue</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueueDelete</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueDeleteOk</body>
+
+<body package="Amqp">codecMethodId		^3276840</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	ifEmpty := (bitBuffer bitAnd: 2) ~= 0.	nowait := (bitBuffer bitAnd: 4) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(ifEmpty ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueueDeleteOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueueDeleteOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276841</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueuePurge</class-id> <category>accessing</category>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueuePurge</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueuePurgeOk</body>
+
+<body package="Amqp">codecMethodId		^3276830</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08QueuePurgeOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08QueuePurgeOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^3276831</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamCancel</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamCancel</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamCancelOk</body>
+
+<body package="Amqp">codecMethodId		^5242910</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamCancelOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamCancelOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5242911</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamConsume</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
+
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
+
+<body package="Amqp">noLocal		^noLocal</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">nowait		^nowait</body>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamConsume</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamConsumeOk</body>
+
+<body package="Amqp">codecMethodId		^5242900</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	exclusive := (bitBuffer bitAnd: 2) ~= 0.	nowait := (bitBuffer bitAnd: 4) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamConsumeOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamConsumeOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^5242901</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamDeliver</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamDeliver</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5242940</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	exchange := codec nextShortstr.	queue := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	codec nextShortstrPut: exchange.	codec nextShortstrPut: queue</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamPublish</class-id> <category>accessing</category>
+
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">immediate		^immediate</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">immediate: aValue		immediate := aValue</body>
+
+<body package="Amqp">mandatory		^mandatory</body>
+
+<body package="Amqp">ticket		^ticket</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamPublish</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5242920</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamQos</class-id> <category>accessing</category>
+
+<body package="Amqp">consumeRate		^consumeRate</body>
+
+<body package="Amqp">prefetchCount		^prefetchCount</body>
+
+<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
+
+<body package="Amqp">prefetchSize		^prefetchSize</body>
+
+<body package="Amqp">consumeRate: aValue		consumeRate := aValue</body>
+
+<body package="Amqp">global		^global</body>
+
+<body package="Amqp">global: aValue		global := aValue</body>
+
+<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamQos</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamQosOk</body>
+
+<body package="Amqp">codecMethodId		^5242890</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	consumeRate := codec nextLong.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	codec nextLongPut: consumeRate.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamQosOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5242891</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamReturn</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">replyText		^replyText</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamReturn</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5242930</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestContent</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestContentOk</body>
+
+<body package="Amqp">codecMethodId		^7864360</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestContentOk</class-id> <category>accessing</category>
+
+<body package="Amqp">contentChecksum		^contentChecksum</body>
+
+<body package="Amqp">contentChecksum: aValue		contentChecksum := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestContentOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^7864361</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	contentChecksum := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: contentChecksum</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestInteger</class-id> <category>accessing</category>
+
+<body package="Amqp">integer3		^integer3</body>
+
+<body package="Amqp">integer3: aValue		integer3 := aValue</body>
+
+<body package="Amqp">operation: aValue		operation := aValue</body>
+
+<body package="Amqp">operation		^operation</body>
+
+<body package="Amqp">integer1		^integer1</body>
+
+<body package="Amqp">integer4		^integer4</body>
+
+<body package="Amqp">integer2: aValue		integer2 := aValue</body>
+
+<body package="Amqp">integer2		^integer2</body>
+
+<body package="Amqp">integer4: aValue		integer4 := aValue</body>
+
+<body package="Amqp">integer1: aValue		integer1 := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestInteger</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	integer1 := codec nextOctet.	integer2 := codec nextShort.	integer3 := codec nextLong.	integer4 := codec nextLonglong.	operation := codec nextOctet</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: integer1.	codec nextShortPut: integer2.	codec nextLongPut: integer3.	codec nextLonglongPut: integer4.	codec nextOctetPut: operation</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestIntegerOk</body>
+
+<body package="Amqp">codecMethodId		^7864330</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestIntegerOk</class-id> <category>accessing</category>
+
+<body package="Amqp">result		^result</body>
+
+<body package="Amqp">result: aValue		result := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestIntegerOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^7864331</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	result := codec nextLonglong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: result</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestString</class-id> <category>accessing</category>
+
+<body package="Amqp">string2: aValue		string2 := aValue</body>
+
+<body package="Amqp">string1		^string1</body>
+
+<body package="Amqp">string1: aValue		string1 := aValue</body>
+
+<body package="Amqp">operation: aValue		operation := aValue</body>
+
+<body package="Amqp">operation		^operation</body>
+
+<body package="Amqp">string2		^string2</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestString</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	string1 := codec nextShortstr.	string2 := codec nextLongstr.	operation := codec nextOctet</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: string1.	codec nextLongstrPut: string2.	codec nextOctetPut: operation</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestStringOk</body>
+
+<body package="Amqp">codecMethodId		^7864340</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestStringOk</class-id> <category>accessing</category>
+
+<body package="Amqp">result		^result</body>
+
+<body package="Amqp">result: aValue		result := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestStringOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	result := codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: result</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^7864341</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestTable</class-id> <category>accessing</category>
+
+<body package="Amqp">table: aValue		table := aValue</body>
+
+<body package="Amqp">stringOp: aValue		stringOp := aValue</body>
+
+<body package="Amqp">stringOp		^stringOp</body>
+
+<body package="Amqp">integerOp: aValue		integerOp := aValue</body>
+
+<body package="Amqp">table		^table</body>
+
+<body package="Amqp">integerOp		^integerOp</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestTable</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestTableOk</body>
+
+<body package="Amqp">codecMethodId		^7864350</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	table := codec nextTable.	integerOp := codec nextOctet.	stringOp := codec nextOctet</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: table.	codec nextOctetPut: integerOp.	codec nextOctetPut: stringOp</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TestTableOk</class-id> <category>accessing</category>
+
+<body package="Amqp">stringResult		^stringResult</body>
+
+<body package="Amqp">stringResult: aValue		stringResult := aValue</body>
+
+<body package="Amqp">integerResult: aValue		integerResult := aValue</body>
+
+<body package="Amqp">integerResult		^integerResult</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TestTableOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^7864351</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	integerResult := codec nextLonglong.	stringResult := codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: integerResult.	codec nextLongstrPut: stringResult</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TunnelRequest</class-id> <category>accessing</category>
+
+<body package="Amqp">metaData: aValue		metaData := aValue</body>
+
+<body package="Amqp">metaData		^metaData</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TunnelRequest</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^7208970</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	metaData := codec nextTable</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: metaData</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxCommit</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxCommitOk</body>
+
+<body package="Amqp">codecMethodId		^5898260</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxCommitOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5898261</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxRollback</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxRollbackOk</body>
+
+<body package="Amqp">codecMethodId		^5898270</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxRollbackOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^5898271</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxSelect</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^5898250</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxSelectOk</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TxSelectOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5898251</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicAck</class-id> <category>accessing</category>
+
+<body package="Amqp">multiple		^multiple</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">multiple: aValue		multiple := aValue</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicAck</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932240</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	multiple := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicCancel</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicCancel</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicCancelOk</body>
+
+<body package="Amqp">codecMethodId		^3932190</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicCancelOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicCancelOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932191</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicConsume</class-id> <category>accessing</category>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">noAck: aValue		noAck := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">noLocal		^noLocal</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">noAck		^noAck</body>
+
+<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+
+<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicConsume</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicConsumeOk</body>
+
+<body package="Amqp">codecMethodId		^3932180</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	noAck := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	noWait := (bitBuffer bitAnd: 8) ~= 0.	arguments := codec nextTable</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicConsumeOk</class-id> <category>accessing</category>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicConsumeOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932181</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicDeliver</class-id> <category>accessing</category>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">redelivered		^redelivered</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicDeliver</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932220</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicGet</class-id> <category>accessing</category>
+
+<body package="Amqp">noAck		^noAck</body>
+
+<body package="Amqp">noAck: aValue		noAck := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicGet</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicGetEmpty with: Amqp091BasicGetOk</body>
+
+<body package="Amqp">codecMethodId		^3932230</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	noAck := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicGetEmpty</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932232</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicGetOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">redelivered		^redelivered</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicGetOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932231</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	messageCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextLongPut: messageCount</body>
+
+<body package="Amqp">hasContents		^true</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicPublish</class-id> <category>accessing</category>
+
+<body package="Amqp">immediate		^immediate</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">immediate: aValue		immediate := aValue</body>
+
+<body package="Amqp">mandatory		^mandatory</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicPublish</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932200</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicQos</class-id> <category>accessing</category>
+
+<body package="Amqp">prefetchSize		^prefetchSize</body>
+
+<body package="Amqp">global		^global</body>
+
+<body package="Amqp">global: aValue		global := aValue</body>
+
+<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
+
+<body package="Amqp">prefetchCount		^prefetchCount</body>
+
+<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicQos</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicQosOk</body>
+
+<body package="Amqp">codecMethodId		^3932170</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicQosOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932171</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicRecover</class-id> <category>accessing</category>
+
+<body package="Amqp">requeue: aValue		requeue := aValue</body>
+
+<body package="Amqp">requeue		^requeue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicRecover</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932270</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicRecoverAsync</class-id> <category>accessing</category>
+
+<body package="Amqp">requeue		^requeue</body>
+
+<body package="Amqp">requeue: aValue		requeue := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicRecoverAsync</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932260</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicRecoverOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^3932271</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicReject</class-id> <category>accessing</category>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">requeue: aValue		requeue := aValue</body>
+
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+
+<body package="Amqp">requeue		^requeue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicReject</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^3932250</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicReturn</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">replyText		^replyText</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicReturn</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+
+<body package="Amqp">hasContents		^true</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3932210</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelClose</class-id> <category>accessing</category>
+
+<body package="Amqp">replyText		^replyText</body>
+
+<body package="Amqp">methodId: aValue		methodId := aValue</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">methodId		^methodId</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
+
+<body package="Amqp">classId: aValue		classId := aValue</body>
+
+<body package="Amqp">classId		^classId</body>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ChannelClose</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelCloseOk</body>
+
+<body package="Amqp">codecMethodId		^1310760</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelCloseOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^1310761</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelFlow</class-id> <category>accessing</category>
+
+<body package="Amqp">active: aValue		active := aValue</body>
+
+<body package="Amqp">active		^active</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ChannelFlow</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^1310740</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelFlowOk</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelFlowOk</class-id> <category>accessing</category>
+
+<body package="Amqp">active		^active</body>
+
+<body package="Amqp">active: aValue		active := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ChannelFlowOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^1310741</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelOpen</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^1310730</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelOpenOk</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ChannelOpenOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^1310731</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: nil</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionClose</class-id> <category>accessing</category>
+
+<body package="Amqp">methodId: aValue		methodId := aValue</body>
+
+<body package="Amqp">methodId		^methodId</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
+
+<body package="Amqp">classId: aValue		classId := aValue</body>
+
+<body package="Amqp">classId		^classId</body>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+
+<body package="Amqp">replyText		^replyText</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionClose</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^655410</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionCloseOk</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionCloseOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^655411</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionOpen</class-id> <category>accessing</category>
+
+<body package="Amqp">virtualHost: aValue		virtualHost := aValue</body>
+
+<body package="Amqp">virtualHost		^virtualHost</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionOpen</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionOpenOk</body>
+
+<body package="Amqp">codecMethodId		^655400</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	virtualHost := codec nextShortstr.	codec nextShortstr.	bitBuffer := codec nextOctet</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: virtualHost.	codec nextShortstrPut: nil.	bitBuffer := 0.	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionOpenOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^655401</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionSecure</class-id> <category>accessing</category>
+
+<body package="Amqp">challenge: aValue		challenge := aValue</body>
+
+<body package="Amqp">challenge		^challenge</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionSecure</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionSecureOk</body>
+
+<body package="Amqp">codecMethodId		^655380</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	challenge := codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: challenge</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionSecureOk</class-id> <category>accessing</category>
+
+<body package="Amqp">response		^response</body>
+
+<body package="Amqp">response: aValue		response := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionSecureOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^655381</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	response := codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: response</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionStart</class-id> <category>accessing</category>
+
+<body package="Amqp">versionMinor		^versionMinor</body>
+
+<body package="Amqp">mechanisms: aValue		mechanisms := aValue</body>
+
+<body package="Amqp">serverProperties: aValue		serverProperties := aValue</body>
+
+<body package="Amqp">locales		^locales</body>
+
+<body package="Amqp">serverProperties		^serverProperties</body>
+
+<body package="Amqp">versionMajor		^versionMajor</body>
+
+<body package="Amqp">versionMinor: aValue		versionMinor := aValue</body>
+
+<body package="Amqp">locales: aValue		locales := aValue</body>
+
+<body package="Amqp">versionMajor: aValue		versionMajor := aValue</body>
+
+<body package="Amqp">mechanisms		^mechanisms</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionStart</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionStartOk</body>
+
+<body package="Amqp">codecMethodId		^655370</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	versionMajor := codec nextOctet.	versionMinor := codec nextOctet.	serverProperties := codec nextTable.	mechanisms := codec nextLongstr.	locales := codec nextLongstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: versionMajor.	codec nextOctetPut: versionMinor.	codec nextTablePut: serverProperties.	codec nextLongstrPut: mechanisms.	codec nextLongstrPut: locales</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionStartOk</class-id> <category>accessing</category>
+
+<body package="Amqp">clientProperties: aValue		clientProperties := aValue</body>
+
+<body package="Amqp">response: aValue		response := aValue</body>
+
+<body package="Amqp">mechanism: aValue		mechanism := aValue</body>
+
+<body package="Amqp">response		^response</body>
+
+<body package="Amqp">locale: aValue		locale := aValue</body>
+
+<body package="Amqp">mechanism		^mechanism</body>
+
+<body package="Amqp">locale		^locale</body>
+
+<body package="Amqp">clientProperties		^clientProperties</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionStartOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^655371</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	clientProperties := codec nextTable.	mechanism := codec nextShortstr.	response := codec nextLongstr.	locale := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: clientProperties.	codec nextShortstrPut: mechanism.	codec nextLongstrPut: response.	codec nextShortstrPut: locale</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionTune</class-id> <category>accessing</category>
+
+<body package="Amqp">channelMax		^channelMax</body>
+
+<body package="Amqp">heartbeat: aValue		heartbeat := aValue</body>
+
+<body package="Amqp">heartbeat		^heartbeat</body>
+
+<body package="Amqp">frameMax: aValue		frameMax := aValue</body>
+
+<body package="Amqp">frameMax		^frameMax</body>
+
+<body package="Amqp">channelMax: aValue		channelMax := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionTune</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionTuneOk</body>
+
+<body package="Amqp">codecMethodId		^655390</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ConnectionTuneOk</class-id> <category>accessing</category>
+
+<body package="Amqp">heartbeat: aValue		heartbeat := aValue</body>
+
+<body package="Amqp">heartbeat		^heartbeat</body>
+
+<body package="Amqp">frameMax: aValue		frameMax := aValue</body>
+
+<body package="Amqp">frameMax		^frameMax</body>
+
+<body package="Amqp">channelMax: aValue		channelMax := aValue</body>
+
+<body package="Amqp">channelMax		^channelMax</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ConnectionTuneOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^655391</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ExchangeDeclare</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">autoDelete: aBoolean</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ExchangeDeclare</class-id> <category>accessing</category>
+
+<body package="Amqp">type: aValue		type := aValue</body>
+
+<body package="Amqp">durable: aValue		durable := aValue</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">passive		^passive</body>
+
+<body package="Amqp">durable		^durable</body>
+
+<body package="Amqp">passive: aValue		passive := aValue</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">type		^type</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ExchangeDeclare</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ExchangeDeclareOk</body>
+
+<body package="Amqp">codecMethodId		^2621450</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	type := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	noWait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	codec nextShortstrPut: type.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ExchangeDeclareOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^2621451</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ExchangeDelete</class-id> <category>accessing</category>
+
+<body package="Amqp">ifUnused		^ifUnused</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091ExchangeDelete</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ExchangeDeleteOk</body>
+
+<body package="Amqp">codecMethodId		^2621460</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	noWait := (bitBuffer bitAnd: 2) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091ExchangeDeleteOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^2621461</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueBind</class-id> <category>accessing</category>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">routingKey		^routingKey</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueBind</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueBindOk</body>
+
+<body package="Amqp">codecMethodId		^3276820</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0.	arguments := codec nextTable</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueBindOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276821</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueDeclare</class-id> <category>accessing</category>
+
+<body package="Amqp">passive		^passive</body>
+
+<body package="Amqp">durable: aValue		durable := aValue</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">autoDelete		^autoDelete</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">passive: aValue		passive := aValue</body>
+
+<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+
+<body package="Amqp">autoDelete: aValue		autoDelete := aValue</body>
+
+<body package="Amqp">durable		^durable</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueDeclare</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueDeclareOk</body>
+
+<body package="Amqp">codecMethodId		^3276810</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	autoDelete := (bitBuffer bitAnd: 8) ~= 0.	noWait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueDeclareOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">consumerCount		^consumerCount</body>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">consumerCount: aValue		consumerCount := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueDeclareOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	queue := codec nextShortstr.	messageCount := codec nextLong.	consumerCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: queue.	codec nextLongPut: messageCount.	codec nextLongPut: consumerCount</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276811</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueDelete</class-id> <category>accessing</category>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">ifEmpty		^ifEmpty</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">ifUnused		^ifUnused</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
+
+<body package="Amqp">ifEmpty: aValue		ifEmpty := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueDelete</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	ifEmpty := (bitBuffer bitAnd: 2) ~= 0.	noWait := (bitBuffer bitAnd: 4) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(ifEmpty ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueDeleteOk</body>
+
+<body package="Amqp">codecMethodId		^3276840</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueDeleteOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+
+<body package="Amqp">messageCount		^messageCount</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueDeleteOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276841</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueuePurge</class-id> <category>accessing</category>
+
+<body package="Amqp">noWait: aValue		noWait := aValue</body>
+
+<body package="Amqp">noWait		^noWait</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueuePurge</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecMethodId		^3276830</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueuePurgeOk</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueuePurgeOk</class-id> <category>accessing</category>
+
+<body package="Amqp">messageCount		^messageCount</body>
+
+<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueuePurgeOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276831</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueUnbind</class-id> <category>accessing</category>
+
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">arguments: aValue		arguments := aValue</body>
+
+<body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">arguments		^arguments</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091QueueUnbind</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueUnbindOk</body>
+
+<body package="Amqp">codecMethodId		^3276850</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	arguments := codec nextTable</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextTablePut: arguments</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091QueueUnbindOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^3276851</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxCommit</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxCommitOk</body>
+
+<body package="Amqp">codecMethodId		^5898260</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxCommitOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5898261</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxRollback</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxRollbackOk</body>
+
+<body package="Amqp">codecMethodId		^5898270</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxRollbackOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5898271</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxSelect</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">hasContents		^false</body>
+
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxSelectOk</body>
+
+<body package="Amqp">codecMethodId		^5898250</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091TxSelectOk</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
+<body package="Amqp">codecMethodId		^5898251</body>
+
+<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+
+<body package="Amqp">hasContents		^false</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpProtocolProperties</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">codecClassId		self subclassResponsibility</body>
+
+<body package="Amqp">decodeFlagsFrom: codec		| flags flagWordIndex partialFlags |	flags := 0.	flagWordIndex := 0.	[partialFlags := codec nextShort.	flags := flags bitOr: (partialFlags bitShift: flagWordIndex * 16).	(partialFlags bitAnd: 1) = 0 ifTrue: [^flags].	flagWordIndex := flagWordIndex + 1] repeat</body>
+
+<body package="Amqp">decodeFrom: codec		self subclassResponsibility</body>
+
+<body package="Amqp">encodeOn: codec		self subclassResponsibility</body>
+
+<body package="Amqp">encodeFlags: flagsToEncode on: codec		| flags remainder partialFlags |	flags := flagsToEncode.	[remainder := flags bitShift: -16.	partialFlags := flags bitAnd: 16rFFFE.	remainder = 0 ifFalse: [partialFlags := partialFlags bitOr: 1].	codec nextShortPut: partialFlags.	flags := remainder.	flags = 0 ifTrue: [^self]] repeat</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08BasicProperties</class-id> <category>accessing</category>
+
+<body package="Amqp">headers: aValue		headers := aValue</body>
+
+<body package="Amqp">messageId		^messageId</body>
+
+<body package="Amqp">appId: aValue		appId := aValue</body>
+
+<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
+
+<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
+
+<body package="Amqp">expiration		^expiration</body>
+
+<body package="Amqp">clusterId		^clusterId</body>
+
+<body package="Amqp">clusterId: aValue		clusterId := aValue</body>
+
+<body package="Amqp">headers		^headers</body>
+
+<body package="Amqp">correlationId: aValue		correlationId := aValue</body>
+
+<body package="Amqp">contentType		^contentType</body>
+
+<body package="Amqp">appId		^appId</body>
+
+<body package="Amqp">type		^type</body>
+
+<body package="Amqp">replyTo		^replyTo</body>
+
+<body package="Amqp">type: aValue		type := aValue</body>
+
+<body package="Amqp">contentEncoding		^contentEncoding</body>
+
+<body package="Amqp">priority: aValue		priority := aValue</body>
+
+<body package="Amqp">deliveryMode		^deliveryMode</body>
+
+<body package="Amqp">userId: aValue		userId := aValue</body>
+
+<body package="Amqp">priority		^priority</body>
+
+<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
+
+<body package="Amqp">correlationId		^correlationId</body>
+
+<body package="Amqp">timestamp		^timestamp</body>
+
+<body package="Amqp">deliveryMode: aValue		deliveryMode := aValue</body>
+
+<body package="Amqp">messageId: aValue		messageId := aValue</body>
+
+<body package="Amqp">expiration: aValue		expiration := aValue</body>
+
+<body package="Amqp">contentType: aValue		contentType := aValue</body>
+
+<body package="Amqp">userId		^userId</body>
+</methods>
+
+<methods>
+<class-id>Amqp08BasicProperties</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecClassId		^60</body>
+
+<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	deliveryMode isNil ifFalse: [qFlags := qFlags bitOr: 4096].	priority isNil ifFalse: [qFlags := qFlags bitOr: 2048].	correlationId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 512].	expiration isNil ifFalse: [qFlags := qFlags bitOr: 256].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 128].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 64].	type isNil ifFalse: [qFlags := qFlags bitOr: 32].	userId isNil ifFalse: [qFlags := qFlags bitOr: 16].	appId isNil ifFalse: [qFlags := qFlags bitOr: 8].	clusterId isNil ifFalse: [qFlags := qFlags bitOr: 4].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	deliveryMode isNil ifFalse: [codec nextOctetPut: deliveryMode].	priority isNil ifFalse: [codec nextOctetPut: priority].	correlationId isNil ifFalse: [codec nextShortstrPut: correlationId].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	expiration isNil ifFalse: [codec nextShortstrPut: expiration].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	type isNil ifFalse: [codec nextShortstrPut: type].	userId isNil ifFalse: [codec nextShortstrPut: userId].	appId isNil ifFalse: [codec nextShortstrPut: appId].	clusterId isNil ifFalse: [codec nextShortstrPut: clusterId]</body>
+
+<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [deliveryMode := nil]		ifFalse: [deliveryMode := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 1024) = 0		ifTrue: [correlationId := nil]		ifFalse: [correlationId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [expiration := nil]		ifFalse: [expiration := codec nextShortstr].	(qFlags bitAnd: 128) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 64) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 32) = 0		ifTrue: [type := nil]		ifFalse: [type := codec nextShortstr].	(qFlags bitAnd: 16) = 0		ifTrue: [userId := nil]		ifFalse: [userId := codec nextShortstr].	(qFlags bitAnd: 8) = 0		ifTrue: [appId := nil]		ifFalse: [appId := codec nextShortstr].	(qFlags bitAnd: 4) = 0		ifTrue: [clusterId := nil]		ifFalse: [clusterId := codec nextShortstr]</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08FileProperties</class-id> <category>accessing</category>
+
+<body package="Amqp">headers		^headers</body>
+
+<body package="Amqp">filename: aValue		filename := aValue</body>
+
+<body package="Amqp">replyTo		^replyTo</body>
+
+<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
+
+<body package="Amqp">headers: aValue		headers := aValue</body>
+
+<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
+
+<body package="Amqp">contentEncoding		^contentEncoding</body>
+
+<body package="Amqp">priority: aValue		priority := aValue</body>
+
+<body package="Amqp">clusterId		^clusterId</body>
+
+<body package="Amqp">contentType		^contentType</body>
+
+<body package="Amqp">timestamp		^timestamp</body>
+
+<body package="Amqp">messageId		^messageId</body>
+
+<body package="Amqp">messageId: aValue		messageId := aValue</body>
+
+<body package="Amqp">contentType: aValue		contentType := aValue</body>
+
+<body package="Amqp">filename		^filename</body>
+
+<body package="Amqp">priority		^priority</body>
+
+<body package="Amqp">clusterId: aValue		clusterId := aValue</body>
+
+<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08FileProperties</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecClassId		^70</body>
+
+<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	priority isNil ifFalse: [qFlags := qFlags bitOr: 4096].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 2048].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	filename isNil ifFalse: [qFlags := qFlags bitOr: 512].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 256].	clusterId isNil ifFalse: [qFlags := qFlags bitOr: 128].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	priority isNil ifFalse: [codec nextOctetPut: priority].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	filename isNil ifFalse: [codec nextShortstrPut: filename].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	clusterId isNil ifFalse: [codec nextShortstrPut: clusterId]</body>
+
+<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 1024) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [filename := nil]		ifFalse: [filename := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 128) = 0		ifTrue: [clusterId := nil]		ifFalse: [clusterId := codec nextShortstr]</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08StreamProperties</class-id> <category>accessing</category>
+
+<body package="Amqp">contentEncoding		^contentEncoding</body>
+
+<body package="Amqp">priority: aValue		priority := aValue</body>
+
+<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
+
+<body package="Amqp">headers		^headers</body>
+
+<body package="Amqp">contentType: aValue		contentType := aValue</body>
+
+<body package="Amqp">timestamp		^timestamp</body>
+
+<body package="Amqp">contentType		^contentType</body>
+
+<body package="Amqp">headers: aValue		headers := aValue</body>
+
+<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
+
+<body package="Amqp">priority		^priority</body>
+</methods>
+
+<methods>
+<class-id>Amqp08StreamProperties</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecClassId		^80</body>
+
+<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	priority isNil ifFalse: [qFlags := qFlags bitOr: 4096].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 2048].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	priority isNil ifFalse: [codec nextOctetPut: priority].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp]</body>
+
+<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp]</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp08TunnelProperties</class-id> <category>accessing</category>
+
+<body package="Amqp">durable: aValue		durable := aValue</body>
+
+<body package="Amqp">dataName		^dataName</body>
+
+<body package="Amqp">headers		^headers</body>
+
+<body package="Amqp">broadcast		^broadcast</body>
+
+<body package="Amqp">proxyName		^proxyName</body>
+
+<body package="Amqp">headers: aValue		headers := aValue</body>
+
+<body package="Amqp">durable		^durable</body>
+
+<body package="Amqp">dataName: aValue		dataName := aValue</body>
+
+<body package="Amqp">proxyName: aValue		proxyName := aValue</body>
+
+<body package="Amqp">broadcast: aValue		broadcast := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp08TunnelProperties</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecClassId		^110</body>
+
+<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	headers isNil ifFalse: [qFlags := qFlags bitOr: 32768].	proxyName isNil ifFalse: [qFlags := qFlags bitOr: 16384].	dataName isNil ifFalse: [qFlags := qFlags bitOr: 8192].	durable isNil ifFalse: [qFlags := qFlags bitOr: 4096].	broadcast isNil ifFalse: [qFlags := qFlags bitOr: 2048].	self encodeFlags: qFlags on: codec.	headers isNil ifFalse: [codec nextTablePut: headers].	proxyName isNil ifFalse: [codec nextShortstrPut: proxyName].	dataName isNil ifFalse: [codec nextShortstrPut: dataName].	durable isNil ifFalse: [codec nextOctetPut: durable].	broadcast isNil ifFalse: [codec nextOctetPut: broadcast]</body>
+
+<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 16384) = 0		ifTrue: [proxyName := nil]		ifFalse: [proxyName := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [dataName := nil]		ifFalse: [dataName := codec nextShortstr].	(qFlags bitAnd: 4096) = 0		ifTrue: [durable := nil]		ifFalse: [durable := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [broadcast := nil]		ifFalse: [broadcast := codec nextOctet]</body>
+</methods>
+
+
+<methods>
+<class-id>Amqp091BasicProperties</class-id> <category>accessing</category>
+
+<body package="Amqp">userId		^userId</body>
+
+<body package="Amqp">headers: aValue		headers := aValue</body>
+
+<body package="Amqp">appId: aValue		appId := aValue</body>
+
+<body package="Amqp">messageId		^messageId</body>
+
+<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
+
+<body package="Amqp">expiration		^expiration</body>
+
+<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
+
+<body package="Amqp">reserved: aValue		reserved := aValue</body>
+
+<body package="Amqp">headers		^headers</body>
+
+<body package="Amqp">reserved		^reserved</body>
+
+<body package="Amqp">correlationId: aValue		correlationId := aValue</body>
+
+<body package="Amqp">contentType		^contentType</body>
+
+<body package="Amqp">appId		^appId</body>
+
+<body package="Amqp">type		^type</body>
+
+<body package="Amqp">replyTo		^replyTo</body>
+
+<body package="Amqp">type: aValue		type := aValue</body>
+
+<body package="Amqp">contentEncoding		^contentEncoding</body>
+
+<body package="Amqp">priority: aValue		priority := aValue</body>
+
+<body package="Amqp">deliveryMode		^deliveryMode</body>
+
+<body package="Amqp">userId: aValue		userId := aValue</body>
+
+<body package="Amqp">priority		^priority</body>
+
+<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
+
+<body package="Amqp">correlationId		^correlationId</body>
+
+<body package="Amqp">timestamp		^timestamp</body>
+
+<body package="Amqp">deliveryMode: aValue		deliveryMode := aValue</body>
+
+<body package="Amqp">messageId: aValue		messageId := aValue</body>
+
+<body package="Amqp">expiration: aValue		expiration := aValue</body>
+
+<body package="Amqp">contentType: aValue		contentType := aValue</body>
+</methods>
+
+<methods>
+<class-id>Amqp091BasicProperties</class-id> <category>AMQP codec</category>
+
+<body package="Amqp">codecClassId		^60</body>
+
+<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	deliveryMode isNil ifFalse: [qFlags := qFlags bitOr: 4096].	priority isNil ifFalse: [qFlags := qFlags bitOr: 2048].	correlationId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 512].	expiration isNil ifFalse: [qFlags := qFlags bitOr: 256].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 128].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 64].	type isNil ifFalse: [qFlags := qFlags bitOr: 32].	userId isNil ifFalse: [qFlags := qFlags bitOr: 16].	appId isNil ifFalse: [qFlags := qFlags bitOr: 8].	reserved isNil ifFalse: [qFlags := qFlags bitOr: 4].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	deliveryMode isNil ifFalse: [codec nextOctetPut: deliveryMode].	priority isNil ifFalse: [codec nextOctetPut: priority].	correlationId isNil ifFalse: [codec nextShortstrPut: correlationId].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	expiration isNil ifFalse: [codec nextShortstrPut: expiration].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	type isNil ifFalse: [codec nextShortstrPut: type].	userId isNil ifFalse: [codec nextShortstrPut: userId].	appId isNil ifFalse: [codec nextShortstrPut: appId].	reserved isNil ifFalse: [codec nextShortstrPut: reserved]</body>
+
+<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [deliveryMode := nil]		ifFalse: [deliveryMode := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 1024) = 0		ifTrue: [correlationId := nil]		ifFalse: [correlationId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [expiration := nil]		ifFalse: [expiration := codec nextShortstr].	(qFlags bitAnd: 128) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 64) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 32) = 0		ifTrue: [type := nil]		ifFalse: [type := codec nextShortstr].	(qFlags bitAnd: 16) = 0		ifTrue: [userId := nil]		ifFalse: [userId := codec nextShortstr].	(qFlags bitAnd: 8) = 0		ifTrue: [appId := nil]		ifFalse: [appId := codec nextShortstr].	(qFlags bitAnd: 4) = 0		ifTrue: [reserved := nil]		ifFalse: [reserved := codec nextShortstr]</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpSpecCompiler class</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">methodNameFor: aString		| first |	first := true.	^self		joinPieces:			(aString substrings				collect:					[:each | 					first						ifTrue:							[first := false.							each]						ifFalse: [each capitalized]])</body>
+
+<body package="Amqp">capitalizedNameFor: aString		^self joinPieces: (aString substrings collect: [:each | each capitalized])</body>
+
+<body package="Amqp">joinPieces: strings		| s |	s := WriteStream with: ''.	strings do: [:each | s nextPutAll: each].	^s contents</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpSpecCompiler</class-id> <category>accessing</category>
+
+<body package="Amqp">classNameFor: aString		^(prefix		,			(AmqpSpecCompiler				joinPieces: (aString substrings collect: [:each | each capitalized])))		asSymbol</body>
+
+<body package="Amqp">decodePropertiesSource: c		| s |	s := WriteStream with:			'decodeFrom: codec	| qFlags |	qFlags := self decodeFlagsFrom: codec.'.	c		propertiesAndMasksDo:			[:f :bitMask | 			f domain = 'bit'				ifTrue:					[f isReserved						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' := (qFlags bitAnd: ' , bitMask asString , ') ~= 0.';								cr]]				ifFalse:					[s nextPutAll: '	(qFlags bitAnd: ' , bitMask asString , ') = 0 ifTrue: ['.					f isReserved ifFalse: [s nextPutAll: f methodName , ' := nil'].					s						nextPutAll: '] ifFalse: [' , (self decodeFieldSource: f) , '].';						cr]].	^s contents</body>
+
+<body package="Amqp">spec		^spec</body>
+
+<body package="Amqp">acceptableResponseClassesSource: m		| s |	s := WriteStream with:			'acceptableResponseClasses	^ #('.	m responses		do:			[:each | 			s				nextPutAll: '		' , (self classNameFor: m classDef name , ' ' , each);				cr].	s nextPutAll: '	)'.	^s contents</body>
+
+<body package="Amqp">encodePropertiesSource: c		| s |	s := WriteStream with:			'encodeOn: codec	| qFlags |	qFlags := 0.'.	c		propertiesAndMasksDo:			[:f :bitMask | 			f isReserved				ifFalse:					[f domain = 'bit'						ifTrue:							[s								nextPutAll:										'	' , f methodName , ' ifTrue: [qFlags := qFlags bitOr: '												, bitMask asString , '].';								cr]						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' isNil ifFalse: [qFlags := qFlags bitOr: '												, bitMask asString , '].';								cr]]].	s		cr;		nextPutAll: '	self encodeFlags: qFlags on: codec.';		cr;		cr.	c		propertiesAndMasksDo:			[:f :bitMask | 			f isReserved				ifFalse:					[f domain = 'bit'						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' isNil ifFalse: [' , (self encodeFieldSource: f) ,													'].';								cr]]].	^s contents</body>
+
+<body package="Amqp">decodeFieldSource: f		^(f isReserved		ifTrue: ['']		ifFalse: ['' , f methodName , ' := ']) , 'codec next' , f domainName ,			'.'</body>
+
+<body package="Amqp">reservedValueForDomain: domain		domain = 'octet' ifTrue: [^'0'].	domain = 'short' ifTrue: [^'0'].	domain = 'long' ifTrue: [^'0'].	domain = 'longlong' ifTrue: [^'0'].	^'nil'</body>
+
+<body package="Amqp">prefix		^prefix</body>
+
+<body package="Amqp">generateContentProperties: def		| c fs |	def hasProperties ifFalse: [^self].	fs := def contentProperties reject: [:each | each isReserved].	c := self		subclassOf: AmqpProtocolProperties		named: def propertiesName		instanceVariables: (fs collect: [:each | each methodName]).	fs		do:			[:f | 			c				compile: f methodName , ' ^ ' , f methodName				classified: 'accessing'.			c				compile: f methodName , ': aValue ' , f methodName , ' := aValue.'				classified: 'accessing'].	c		compile: 'codecClassId ^ ' , def index asString		classified: 'AMQP codec'.	c		compile: (self decodePropertiesSource: def)		classified: 'AMQP codec'.	c		compile: (self encodePropertiesSource: def)		classified: 'AMQP codec'</body>
+
+<body package="Amqp">definitionCategory: anObject		definitionCategory := anObject</body>
+
+<body package="Amqp">definitionCategory		^definitionCategory</body>
+
+<body package="Amqp">encodeFieldSource: f		^'codec next' , f domainName , 'Put: '		,			(f isReserved				ifTrue: [self reservedValueForDomain: f domain]				ifFalse: [f methodName]) , '.'</body>
+
+<body package="Amqp">generateEverything		| p pc |	p := self subclassOf: AmqpProtocol named: '' instanceVariables: #().	pc := p class.	pc		compile: 'portNumber ^' , spec portNumber asString		classified: 'AMQP protocol'.	pc		compile: 'majorVersion ^' , spec majorVersion asString		classified: 'AMQP protocol'.	pc		compile: 'minorVersion ^' , spec minorVersion asString		classified: 'AMQP protocol'.	pc		compile: 'revision ^' , spec revision asString		classified: 'AMQP protocol'.	pc		compile:			'isObsoleteProtocolVariant ^' , spec isObsoleteProtocolVariant asString		classified: 'AMQP protocol'.	spec constants		keysAndValuesDo:			[:name :value | 			pc				compile: (AmqpSpecCompiler methodNameFor: name) , ' ^' , value asString				classified: 'AMQP protocol constants'].	spec classDefinitions valuesDo: [:def | self generateClass: def].	pc		compile: self initializerSource		classified: 'class initialization'.	spec allMethods		do:			[:def | 			pc				compile:					(AmqpSpecCompiler						methodNameFor: def classDef name , ' ' , def name , ' method') ,							' ^ ' , (self classNameFor: def classDef name , ' ' , def name)				classified: 'AMQP methods'].	spec classDefinitions		valuesDo:			[:def | 			def hasProperties				ifTrue:					[pc						compile:							(AmqpSpecCompiler methodNameFor: def propertiesName , ' class') , ' ^ '								, (self classNameFor: def propertiesName)						classified: 'AMQP content properties']]</body>
+
+<body package="Amqp">subclassOf: aSuperClass named: aString instanceVariables: aCollection		| ivs n c |	ivs := WriteStream with: ''.	n := self classNameFor: aString.	aCollection		do: [:each | ivs nextPutAll: each]		separatedBy: [ivs space].	c := aSuperClass		subclass: n		instanceVariableNames: ivs contents		classVariableNames: ''		poolDictionaries: ''		category: definitionCategory.	^c</body>
+
+<body package="Amqp">spec: anObject		spec := anObject.	definitionCategory := 'Amqp-Protocol-' , spec versionString.	prefix := 'Amqp' , spec versionString</body>
+
+<body package="Amqp">generateClass: def		self generateContentProperties: def.	def methods valuesDo: [:each | self generateMethod: each]</body>
+
+<body package="Amqp">decodeMethodSource: m		| s bitindex |	s := WriteStream with:			'decodeFrom: codec	| bitBuffer |'.	bitindex := nil.	m fields		do:			[:f | 			f domain = 'bit'				ifTrue:					[bitindex ifNil: [bitindex := 0].					bitindex &gt;= 8 ifTrue: [bitindex := 0].					bitindex = 0						ifTrue:							[s								nextPutAll: '	bitBuffer := codec nextOctet.';								cr].					f isReserved						ifFalse:							[s								nextPutAll:									'	' , f methodName , ' := (bitBuffer bitAnd: '										, (1 bitShift: bitindex) asString , ') ~= 0.'.							s cr].					bitindex := bitindex + 1]				ifFalse:					[bitindex := nil.					s						nextPutAll: '	' , (self decodeFieldSource: f);						cr]].	^s contents</body>
+
+<body package="Amqp">encodeMethodSource: m		| s bitindex finishbits |	s := WriteStream with:			'encodeOn: codec	| bitBuffer |'.	bitindex := nil.	finishbits := [bitindex notNil		ifTrue:			[s				nextPutAll: '	codec nextOctetPut: bitBuffer.';				cr]].	m fields		do:			[:f | 			f domain = 'bit'				ifTrue:					[bitindex						ifNil:							[bitindex := 0.							s								nextPutAll: '	bitBuffer := 0.';								cr].					bitindex &gt;= 8						ifTrue:							[finishbits value.							s								nextPutAll: '	bitBuffer := 0.';								cr.							bitindex := 0].					f isReserved						ifFalse:							[s								nextPutAll:									'	(' , f methodName , ' ifNil: [false])' ,											' ifTrue: [bitBuffer := bitBuffer bitOr: '										, (1 bitShift: bitindex) asString , '].'.							s cr].					bitindex := bitindex + 1]				ifFalse:					[finishbits value.					bitindex := nil.					s						nextPutAll: '	' , (self encodeFieldSource: f);						cr]].	finishbits value.	^s contents</body>
+
+<body package="Amqp">generateMethod: def		| c fs |	fs := def fields reject: [:each | each isReserved].	c := self		subclassOf: AmqpProtocolMethod		named: def classDef name , ' ' , def name		instanceVariables: (fs collect: [:each | each methodName]).	fs		do:			[:f | 			c				compile: f methodName , ' ^ ' , f methodName				classified: 'accessing'.			c				compile: f methodName , ': aValue ' , f methodName , ' := aValue.'				classified: 'accessing'].	c		compile: 'codecMethodId ^ ' , def methodId asString		classified: 'AMQP codec'.	c		compile: 'hasContents ^ ' , def hasContents asString		classified: 'AMQP codec'.	c		compile: (self acceptableResponseClassesSource: def)		classified: 'AMQP codec'.	c		compile: (self decodeMethodSource: def)		classified: 'AMQP codec'.	c		compile: (self encodeMethodSource: def)		classified: 'AMQP codec'</body>
+
+<body package="Amqp">prefix: anObject		prefix := anObject</body>
+
+<body package="Amqp">initializerSource		| source |	source := WriteStream with:			'initialize	super initialize.'.	spec classDefinitions		valuesDo:			[:each | 			each hasProperties				ifTrue:					[source						nextPutAll: '	classIds at: ';						nextPutAll: each index asString;						nextPutAll: ' put: ';						nextPutAll: (self classNameFor: each propertiesName);						nextPut: $.;						nextPut: Character cr]].	spec allMethods		do:			[:each | 			source				nextPutAll: '	methodIds at: ';				nextPutAll: each methodId asString;				nextPutAll: ' put: ';				nextPutAll: (self classNameFor: each classDef name , ' ' , each name);				nextPut: $.;				nextPut: Character cr].	^source contents</body>
+
+<body package="Amqp">wipePackage		(self		confirm:			'Are you sure you want to erase all classes in package ' ,					definitionCategory , '?') ifFalse: [^self].	(Class allSubInstances		select: [:each | each category = definitionCategory])		do: [:each | each removeFromSystem]</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpSpecification class</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">normalizeName: aString		| s |	s := aString asLowercase.	s := s copyReplaceAll: '-' with: ' '.	s := s copyReplaceAll: '_' with: ' '.	^s</body>
+
+<body package="Amqp">official091		^self loadFrom:			'http://jira.amqp.org/confluence/download/attachments/720900/amqp0-9-1.stripped.xml?version=1'</body>
+
+<body package="Amqp">loadFrom: aUrl		^self new loadFromXml: aUrl asUrl retrieveContents contents readStream</body>
+
+<body package="Amqp">official08		^self loadFrom:			'http://jira.amqp.org/confluence/download/attachments/720900/amqp0-8.stripped.xml?version=1'</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpSpecification</class-id> <category>accessing</category>
+
+<body package="Amqp">portNumber		^portNumber</body>
+
+<body package="Amqp">domains: anObject		domains := anObject</body>
+
+<body package="Amqp">portNumber: anObject		portNumber := anObject</body>
+
+<body package="Amqp">class: className method: methodName		^(self classAt: className) methods at: methodName</body>
+
+<body package="Amqp">classAt: className		^classDefinitions at: className</body>
+
+<body package="Amqp">majorVersion		^majorVersion</body>
+
+<body package="Amqp">majorVersion: anObject		majorVersion := anObject</body>
+
+<body package="Amqp">revision: anObject		revision := anObject</body>
+
+<body package="Amqp">classDefinitions: anObject		classDefinitions := anObject</body>
+
+<body package="Amqp">allMethods		^(classDefinitions values collect: [:each | each methods values])		concatenation</body>
+
+<body package="Amqp">domains		^domains</body>
+
+<body package="Amqp">minorVersion: anObject		minorVersion := anObject</body>
+
+<body package="Amqp">minorVersion		^minorVersion</body>
+
+<body package="Amqp">revision		^revision</body>
+
+<body package="Amqp">classDefinitions		^classDefinitions</body>
+
+<body package="Amqp">resolveDomain: aString		^domains at: (AmqpSpecification normalizeName: aString)</body>
+
+<body package="Amqp">constants		^constants</body>
+
+<body package="Amqp">constants: anObject		constants := anObject</body>
+</methods>
+
+<methods>
+<class-id>AmqpSpecification</class-id> <category>as yet unclassified</category>
+
+<body package="Amqp">resolve		classDefinitions valuesDo: [:each | each resolveUsing: self]</body>
+
+<body package="Amqp">versionString		^majorVersion asString , minorVersion asString		,			(revision &gt; 0				ifTrue: [revision asString]				ifFalse: [''])</body>
+
+<body package="Amqp">isObsoleteProtocolVariant		^majorVersion = 0 and: [minorVersion &lt; 9]</body>
+
+<body package="Amqp">insertBaseDomains	"For the benefit of the 0-8 spec, which is missing these ground definitions."		#('octet' 'shortstr' 'longstr' 'short' 'long' 'longlong' 'bit' 'table' 'timestamp')		do: [:d | domains at: d put: d]</body>
+
+<body package="Amqp">loadFromXml: aStream		| d a |	d := XMLDOMParser parseDocumentFrom: aStream.	a := d firstTagNamed: #amqp.	majorVersion := (a attributeAt: #major) asInteger.	minorVersion := (a attributeAt: #minor) asInteger.	revision := (a		attributeAt: #revision		ifAbsent: [0]) asInteger.	"Special-case a mistake in the 0-8 XML."	(majorVersion = 8 and: [minorVersion = 0])		ifTrue:			[majorVersion := 0.			minorVersion := 8].	portNumber := (a attributeAt: #port) asInteger.	constants := Dictionary new.	a		tagsNamed: #constant		childrenDo:			[:each | 			constants				at: (AmqpSpecification normalizeName: (each attributeAt: #name))				put: (each attributeAt: #value) asInteger].	domains := Dictionary new.	self insertBaseDomains.	a		tagsNamed: #domain		childrenDo:			[:each | 			domains				at: (AmqpSpecification normalizeName: (each attributeAt: #name))				put: (AmqpSpecification normalizeName: (each attributeAt: #type))].	classDefinitions := Dictionary new.	a		tagsNamed: #class		do:			[:each | 			(AmqpClassDefinition new)				loadFrom: each;				installOn: classDefinitions].	self resolve</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpProtocolMismatchError</class-id> <category>accessing</category>
+
+<body package="Amqp">serverProtocolHeader		^serverProtocolHeader</body>
+
+<body package="Amqp">serverProtocolHeader: anObject		serverProtocolHeader := anObject</body>
+</methods>
+
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP local transactions</category>
+
+<body package="Amqp">txSelect		^self rpc: protocolClass txSelectMethod new</body>
+
+<body package="Amqp">txCommit		^self rpc: protocolClass txCommitMethod new</body>
+
+<body package="Amqp">txRollback		^self rpc: protocolClass txRollbackMethod new</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP binding management</category>
+
+<body package="Amqp">queueBind: queue exchange: exchange routingKey: routingKey arguments: aDictionary		^self		rpc:			((protocolClass queueBindMethod new)				queue: queue;				exchange: exchange;				routingKey: routingKey;				arguments: aDictionary)</body>
+
+<body package="Amqp">queueUnbind: queue exchange: exchange routingKey: routingKey		^self queueUnbind: queue exchange: exchange routingKey: routingKey		arguments: nil</body>
+
+<body package="Amqp">queueUnbind: queue exchange: exchange routingKey: routingKey arguments: aDictionary		^self		rpc:			((protocolClass queueUnbindMethod new)				queue: queue;				exchange: exchange;				routingKey: routingKey;				arguments: aDictionary)</body>
+
+<body package="Amqp">queueBind: queue exchange: exchange routingKey: routingKey		^self queueBind: queue exchange: exchange routingKey: routingKey		arguments: nil</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>accessing</category>
+
+<body package="Amqp">handler: h		handler := h.	handler addDependent: self.	callbacks := Dictionary new.	protocolClass := handler connection protocolClass.	handler		mapEvent: protocolClass channelCloseMethod		to: self		selector: #handleChannelClose:.	handler		mapEvent: protocolClass basicDeliverMethod		to: self		selector: #handleBasicDeliver:.	handler		mapEvent: protocolClass basicReturnMethod		to: self		selector: #handleBasicReturn:.	handler		mapEvent: protocolClass channelFlowMethod		to: self		selector: #handleChannelFlow:.	self rpc: protocolClass channelOpenMethod new</body>
+
+<body package="Amqp">handler		^handler</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP queue management</category>
+
+<body package="Amqp">queueDeclare: queueName durable: durable exclusive: exclusive autoDelete: autoDelete passive: passive arguments: aDictionary		^self		rpc:			((protocolClass queueDeclareMethod new)				queue: queueName;				passive: passive;				durable: durable;				exclusive: exclusive;				autoDelete: autoDelete;				arguments: aDictionary)</body>
+
+<body package="Amqp">queuePurge: queue		^self rpc: (protocolClass queuePurgeMethod new queue: queue)</body>
+
+<body package="Amqp">queueDelete: queueName		^self queueDelete: queueName ifUnused: false ifEmpty: false</body>
+
+<body package="Amqp">queueDeclare: queueName		^self queueDeclare: queueName durable: false exclusive: false autoDelete:			false passive: false arguments: nil</body>
+
+<body package="Amqp">queueDelete: queueName ifUnused: ifUnused ifEmpty: ifEmpty		^self		rpc:			((protocolClass queueDeleteMethod new)				queue: queueName;				ifUnused: ifUnused;				ifEmpty: ifEmpty)</body>
+
+<body package="Amqp">queueDeclare: queueName durable: durable		^self queueDeclare: queueName durable: durable exclusive: false		autoDelete: false passive: false arguments: nil</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP receiving messages</category>
+
+<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck exclusive: exclusive consumerTag: aString arguments: aDictionary		| result |	result := self		rpc:			((protocolClass basicConsumeMethod new)				queue: queue;				consumerTag: aString;				noAck: noAck;				exclusive: exclusive;				arguments: aDictionary).	callbacks		at: result method consumerTag		put: anObject -&gt; aSymbol.	^result method consumerTag</body>
+
+<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck		^self consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck		exclusive: false consumerTag: ''</body>
+
+<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol		^self consumeFrom: queue callback: anObject selector: aSymbol noAck: false		exclusive: false consumerTag: ''</body>
+
+<body package="Amqp">basicReject: anInteger requeue: aBoolean		self		rpc:			((protocolClass basicRejectMethod new)				deliveryTag: anInteger;				requeue: aBoolean)</body>
+
+<body package="Amqp">prefetchCount: prefetchCount		^self prefetchCount: prefetchCount prefetchSize: 0 global: false</body>
+
+<body package="Amqp">basicGet: aString noAck: aBoolean		| result |	result := self		rpc:			((protocolClass basicGetMethod new)				queue: aString;				noAck: aBoolean).	(result method isKindOf: protocolClass basicGetOkMethod) ifFalse: [^nil].	^result</body>
+
+<body package="Amqp">basicRecover: shouldRequeue		^self rpc: (protocolClass basicRecoverMethod new requeue: shouldRequeue)</body>
+
+<body package="Amqp">basicAck: anInteger		self basicAck: anInteger multiple: false</body>
+
+<body package="Amqp">cancelConsumer: consumerTag		self rpc: (protocolClass basicCancelMethod new consumerTag: consumerTag).	callbacks		removeKey: consumerTag		ifAbsent: []</body>
+
+<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck exclusive: exclusive consumerTag: aString		| result |	result := self		rpc:			((protocolClass basicConsumeMethod new)				queue: queue;				consumerTag: aString;				noAck: noAck;				exclusive: exclusive).	callbacks		at: result method consumerTag		put: anObject -&gt; aSymbol.	^result method consumerTag</body>
+
+<body package="Amqp">basicRecover		^self basicRecover: false</body>
+
+<body package="Amqp">basicGet: aString		^self basicGet: aString noAck: false</body>
+
+<body package="Amqp">prefetchCount: prefetchCount prefetchSize: prefetchSize global: aBoolean		^self		rpc:			((protocolClass basicQosMethod new)				prefetchSize: prefetchSize;				prefetchCount: prefetchCount;				global: aBoolean)</body>
+
+<body package="Amqp">basicAck: anInteger multiple: aBoolean		self		rpc:			((protocolClass basicAckMethod new)				deliveryTag: anInteger;				multiple: aBoolean)</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP closing</category>
+
+<body package="Amqp">closeReason		^handler closeReason</body>
+
+<body package="Amqp">close		| c |	handler closeReason		ifNil:			[c := (protocolClass channelCloseMethod new)				replyCode: protocolClass replySuccess;				replyText: 'Normal close';				classId: 0;				methodId: 0.			handler rpc: c.			handler internalClose: c]</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP server-generated events</category>
+
+<body package="Amqp">handleChannelClose: cmd		handler internalClose: cmd method.	handler connection		sendMethod: protocolClass channelCloseOkMethod new		onChannel: handler channelNumber	"TODO: notify callbacks of closure"</body>
+
+<body package="Amqp">handleBasicDeliver: cmd		| a |	a := callbacks at: cmd method consumerTag.	a key		perform: a value		with: cmd</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP sending messages</category>
+
+<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey properties: aBasicProperties		^self basicPublish: aByteArray exchange: exchangeName routingKey:			routingKey properties: aBasicProperties mandatory: false immediate:			false</body>
+
+<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey		^self		basicPublish: aByteArray		exchange: exchangeName		routingKey: routingKey		properties: protocolClass basicPropertiesClass new</body>
+
+<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey properties: aBasicProperties mandatory: mandatory immediate: immediate		handler connection		sendMethod:			((protocolClass basicPublishMethod new)				exchange: exchangeName;				routingKey: routingKey;				mandatory: mandatory;				immediate: immediate)		properties: aBasicProperties		body: aByteArray		onChannel: handler channelNumber</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP exchange management</category>
+
+<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable autoDelete: autoDelete passive: passive arguments: aDictionary		^self		rpc:			((protocolClass exchangeDeclareMethod new)				exchange: exchangeName;				type: typeString;				passive: passive;				durable: durable;				autoDelete: autoDelete;				arguments: aDictionary)</body>
+
+<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable autoDelete: autoDelete passive: passive		^self exchangeDeclare: exchangeName type: typeString durable: durable		autoDelete: autoDelete passive: passive arguments: nil</body>
+
+<body package="Amqp">exchangeDeclare: exchangeName type: typeString		^self exchangeDeclare: exchangeName type: typeString durable: false		autoDelete: false passive: false arguments: nil</body>
+
+<body package="Amqp">exchangeDelete: exchangeName		^self exchangeDelete: exchangeName ifUnused: false</body>
+
+<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable		^self exchangeDeclare: exchangeName type: typeString durable: durable		autoDelete: false passive: false arguments: nil</body>
+
+<body package="Amqp">exchangeDelete: exchangeName ifUnused: aBoolean		^self		rpc:			((protocolClass exchangeDeleteMethod new)				exchange: exchangeName;				ifUnused: aBoolean)</body>
+</methods>
+
+<methods>
+<class-id>AmqpChannel</class-id> <category>AMQP private</category>
+
+<body package="Amqp">update: aSymbol		aSymbol == #channelHandlerClosed ifTrue: [self changed: #channelClosed].	^super update: aSymbol</body>
+
+<body package="Amqp">protocolClass		^protocolClass</body>
+
+<body package="Amqp">rpc: requestMethod		^handler rpc: requestMethod</body>
+</methods>
+
+
 <methods>
 <class-id>AmqpChannelHandler</class-id> <category>accessing</category>
 
@@ -3586,44 +6836,29 @@
 
 
 <methods>
-<class-id>AmqpProtocolMethod</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">hasContents		self subclassResponsibility</body>
-
-<body package="Amqp">codecMethodId		self subclassResponsibility</body>
-
-<body package="Amqp">encodeOn: codec		self subclassResponsibility</body>
-
-<body package="Amqp">decodeFrom: codec		self subclassResponsibility</body>
-
-<body package="Amqp">acceptableResponseClasses		self subclassResponsibility</body>
-</methods>
-
-
-<methods>
 <class-id>Amqp08AccessRequest</class-id> <category>accessing</category>
 
 <body package="Amqp">read		^read</body>
 
-<body package="Amqp">passive: aValue		passive := aValue</body>
-
-<body package="Amqp">read: aValue		read := aValue</body>
-
-<body package="Amqp">write: aValue		write := aValue</body>
-
-<body package="Amqp">active		^active</body>
-
-<body package="Amqp">realm: aValue		realm := aValue</body>
+<body package="Amqp">exclusive		^exclusive</body>
 
 <body package="Amqp">exclusive: aValue		exclusive := aValue</body>
 
-<body package="Amqp">active: aValue		active := aValue</body>
-
 <body package="Amqp">passive		^passive</body>
 
-<body package="Amqp">write		^write</body>
+<body package="Amqp">passive: aValue		passive := aValue</body>
 
-<body package="Amqp">exclusive		^exclusive</body>
+<body package="Amqp">active		^active</body>
+
+<body package="Amqp">read: aValue		read := aValue</body>
+
+<body package="Amqp">realm: aValue		realm := aValue</body>
+
+<body package="Amqp">active: aValue		active := aValue</body>
+
+<body package="Amqp">write: aValue		write := aValue</body>
+
+<body package="Amqp">write		^write</body>
 
 <body package="Amqp">realm		^realm</body>
 </methods>
@@ -3633,13 +6868,13 @@
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^1966090</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08AccessRequestOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: realm.	bitBuffer := 0.	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(write ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(read ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^1966090</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	realm := codec nextShortstr.	bitBuffer := codec nextOctet.	exclusive := (bitBuffer bitAnd: 1) ~= 0.	passive := (bitBuffer bitAnd: 2) ~= 0.	active := (bitBuffer bitAnd: 4) ~= 0.	write := (bitBuffer bitAnd: 8) ~= 0.	read := (bitBuffer bitAnd: 16) ~= 0</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08AccessRequestOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: realm.	bitBuffer := 0.	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(write ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(read ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer</body>
 </methods>
 
 
@@ -3654,13 +6889,13 @@
 <methods>
 <class-id>Amqp08AccessRequestOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^1966091</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket</body>
+<body package="Amqp">codecMethodId		^1966091</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -3671,9 +6906,9 @@
 
 <body package="Amqp">multiple: aValue		multiple := aValue</body>
 
-<body package="Amqp">multiple		^multiple</body>
-
 <body package="Amqp">deliveryTag		^deliveryTag</body>
+
+<body package="Amqp">multiple		^multiple</body>
 
 <body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
 </methods>
@@ -3683,13 +6918,13 @@
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	multiple := (bitBuffer bitAnd: 1) ~= 0</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^3932240</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^3932240</body>
 </methods>
 
 
@@ -3708,13 +6943,13 @@
 <methods>
 <class-id>Amqp08BasicCancel</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08BasicCancelOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^3932190</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08BasicCancelOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^3932190</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
 </methods>
@@ -3733,30 +6968,30 @@
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^3932191</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
+<body package="Amqp">codecMethodId		^3932191</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08BasicConsume</class-id> <category>accessing</category>
 
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">noAck: aValue		noAck := aValue</body>
-
 <body package="Amqp">ticket		^ticket</body>
 
+<body package="Amqp">exclusive		^exclusive</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+
+<body package="Amqp">noAck		^noAck</body>
+
 <body package="Amqp">exclusive: aValue		exclusive := aValue</body>
+
+<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
 
 <body package="Amqp">consumerTag		^consumerTag</body>
 
@@ -3766,11 +7001,11 @@
 
 <body package="Amqp">nowait		^nowait</body>
 
-<body package="Amqp">noAck		^noAck</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-
 <body package="Amqp">queue		^queue</body>
+
+<body package="Amqp">noAck: aValue		noAck := aValue</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
 
 <body package="Amqp">noLocal		^noLocal</body>
 </methods>
@@ -3778,13 +7013,13 @@
 <methods>
 <class-id>Amqp08BasicConsume</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932180</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer</body>
-
 <body package="Amqp">acceptableResponseClasses		^Array with: Amqp08BasicConsumeOk</body>
 
+<body package="Amqp">codecMethodId		^3932180</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	noAck := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	nowait := (bitBuffer bitAnd: 8) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -3793,60 +7028,60 @@
 <methods>
 <class-id>Amqp08BasicConsumeOk</class-id> <category>accessing</category>
 
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
 <body package="Amqp">consumerTag		^consumerTag</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
 </methods>
 
 <methods>
 <class-id>Amqp08BasicConsumeOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
 
 <body package="Amqp">hasContents		^false</body>
 
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
 <body package="Amqp">codecMethodId		^3932181</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08BasicDeliver</class-id> <category>accessing</category>
 
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
+<body package="Amqp">routingKey		^routingKey</body>
+
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
 
 <body package="Amqp">consumerTag		^consumerTag</body>
 
 <body package="Amqp">deliveryTag		^deliveryTag</body>
 
-<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
-
 <body package="Amqp">routingKey: aValue		routingKey := aValue</body>
 
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
+<body package="Amqp">redelivered		^redelivered</body>
 
 <body package="Amqp">exchange		^exchange</body>
 
-<body package="Amqp">routingKey		^routingKey</body>
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
 
-<body package="Amqp">redelivered		^redelivered</body>
+<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
+
+<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
 </methods>
 
 <methods>
 <class-id>Amqp08BasicDeliver</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932220</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+<body package="Amqp">codecMethodId		^3932220</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
 
 <body package="Amqp">hasContents		^true</body>
 </methods>
@@ -3855,31 +7090,31 @@
 <methods>
 <class-id>Amqp08BasicGet</class-id> <category>accessing</category>
 
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">noAck		^noAck</body>
+<body package="Amqp">ticket		^ticket</body>
 
 <body package="Amqp">queue		^queue</body>
 
-<body package="Amqp">ticket		^ticket</body>
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
+
+<body package="Amqp">queue: aValue		queue := aValue</body>
 
 <body package="Amqp">noAck: aValue		noAck := aValue</body>
 
-<body package="Amqp">queue: aValue		queue := aValue</body>
+<body package="Amqp">noAck		^noAck</body>
 </methods>
 
 <methods>
 <class-id>Amqp08BasicGet</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#(#Amqp08BasicGetEmpty #Amqp08BasicGetOk)</body>
-
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	noAck := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^3932230</body>
+<body package="Amqp">acceptableResponseClasses		^#(#Amqp08BasicGetEmpty #Amqp08BasicGetOk)</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^3932230</body>
 </methods>
 
 
@@ -3894,13 +7129,13 @@
 <methods>
 <class-id>Amqp08BasicGetEmpty</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: clusterId</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^3932232</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: clusterId</body>
+<body package="Amqp">codecMethodId		^3932232</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	clusterId := codec nextShortstr</body>
 </methods>
@@ -3909,76 +7144,76 @@
 <methods>
 <class-id>Amqp08BasicGetOk</class-id> <category>accessing</category>
 
-<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">deliveryTag		^deliveryTag</body>
 
 <body package="Amqp">routingKey: aValue		routingKey := aValue</body>
 
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
+<body package="Amqp">redelivered		^redelivered</body>
 
 <body package="Amqp">messageCount: aValue		messageCount := aValue</body>
 
 <body package="Amqp">exchange		^exchange</body>
 
-<body package="Amqp">routingKey		^routingKey</body>
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
 
-<body package="Amqp">redelivered		^redelivered</body>
+<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
 
 <body package="Amqp">messageCount		^messageCount</body>
 
-<body package="Amqp">deliveryTag		^deliveryTag</body>
+<body package="Amqp">routingKey		^routingKey</body>
 </methods>
 
 <methods>
 <class-id>Amqp08BasicGetOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	messageCount := codec nextLong</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextLongPut: messageCount</body>
 
 <body package="Amqp">hasContents		^true</body>
 
+<body package="Amqp">acceptableResponseClasses		^#()</body>
+
 <body package="Amqp">codecMethodId		^3932231</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	messageCount := codec nextLong</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08BasicPublish</class-id> <category>accessing</category>
 
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">immediate: aValue		immediate := aValue</body>
+<body package="Amqp">ticket: aValue		ticket := aValue</body>
 
 <body package="Amqp">immediate		^immediate</body>
 
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+<body package="Amqp">routingKey		^routingKey</body>
 
 <body package="Amqp">exchange: aValue		exchange := aValue</body>
 
+<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
+
+<body package="Amqp">immediate: aValue		immediate := aValue</body>
+
 <body package="Amqp">mandatory		^mandatory</body>
+
+<body package="Amqp">ticket		^ticket</body>
 
 <body package="Amqp">exchange		^exchange</body>
 
 <body package="Amqp">mandatory: aValue		mandatory := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
 </methods>
 
 <methods>
 <class-id>Amqp08BasicPublish</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932200</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^3932200</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^true</body>
 </methods>
@@ -3987,15 +7222,15 @@
 <methods>
 <class-id>Amqp08BasicQos</class-id> <category>accessing</category>
 
+<body package="Amqp">global		^global</body>
+
 <body package="Amqp">global: aValue		global := aValue</body>
 
 <body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
 
-<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
-
-<body package="Amqp">global		^global</body>
-
 <body package="Amqp">prefetchCount		^prefetchCount</body>
+
+<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
 
 <body package="Amqp">prefetchSize		^prefetchSize</body>
 </methods>
@@ -4003,28 +7238,28 @@
 <methods>
 <class-id>Amqp08BasicQos</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08BasicQosOk</body>
+
 <body package="Amqp">codecMethodId		^3932170</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08BasicQosOk</body>
+<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08BasicQosOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932171</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^3932171</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4041,13 +7276,13 @@
 <methods>
 <class-id>Amqp08BasicRecover</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932260</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
 <body package="Amqp">acceptableResponseClasses		^#()</body>
 
+<body package="Amqp">codecMethodId		^3932260</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4056,11 +7291,11 @@
 <methods>
 <class-id>Amqp08BasicReject</class-id> <category>accessing</category>
 
-<body package="Amqp">deliveryTag		^deliveryTag</body>
+<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
 
 <body package="Amqp">requeue		^requeue</body>
 
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
+<body package="Amqp">deliveryTag		^deliveryTag</body>
 
 <body package="Amqp">requeue: aValue		requeue := aValue</body>
 </methods>
@@ -4068,13 +7303,13 @@
 <methods>
 <class-id>Amqp08BasicReject</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^3932250</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^3932250</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4083,19 +7318,19 @@
 <methods>
 <class-id>Amqp08BasicReturn</class-id> <category>accessing</category>
 
-<body package="Amqp">replyText		^replyText</body>
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
 
 <body package="Amqp">routingKey: aValue		routingKey := aValue</body>
 
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
 
 <body package="Amqp">exchange		^exchange</body>
+
+<body package="Amqp">replyText		^replyText</body>
 
 <body package="Amqp">replyCode		^replyCode</body>
 
 <body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
 
 <body package="Amqp">replyText: aValue		replyText := aValue</body>
 </methods>
@@ -4103,32 +7338,32 @@
 <methods>
 <class-id>Amqp08BasicReturn</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
+<body package="Amqp">codecMethodId		^3932210</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
 
 <body package="Amqp">hasContents		^true</body>
 
-<body package="Amqp">codecMethodId		^3932210</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08ChannelAlert</class-id> <category>accessing</category>
 
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
+<body package="Amqp">replyText		^replyText</body>
 
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
+<body package="Amqp">replyCode		^replyCode</body>
 
 <body package="Amqp">details: aValue		details := aValue</body>
 
-<body package="Amqp">replyText		^replyText</body>
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
 
 <body package="Amqp">details		^details</body>
 
-<body package="Amqp">replyCode		^replyCode</body>
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
 </methods>
 
 <methods>
@@ -4136,46 +7371,46 @@
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^1310750</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextTablePut: details</body>
+<body package="Amqp">codecMethodId		^1310750</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	details := codec nextTable</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextTablePut: details</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08ChannelClose</class-id> <category>accessing</category>
 
+<body package="Amqp">replyText		^replyText</body>
+
 <body package="Amqp">replyCode		^replyCode</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-
-<body package="Amqp">methodId: aValue		methodId := aValue</body>
 
 <body package="Amqp">methodId		^methodId</body>
 
-<body package="Amqp">replyText		^replyText</body>
+<body package="Amqp">methodId: aValue		methodId := aValue</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
 
 <body package="Amqp">classId: aValue		classId := aValue</body>
 
 <body package="Amqp">classId		^classId</body>
+
+<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ChannelClose</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^1310760</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
-
 <body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ChannelCloseOk</body>
 
+<body package="Amqp">codecMethodId		^1310760</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4184,13 +7419,13 @@
 <methods>
 <class-id>Amqp08ChannelCloseOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^1310761</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^1310761</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 </methods>
@@ -4207,13 +7442,13 @@
 <methods>
 <class-id>Amqp08ChannelFlow</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^1310740</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ChannelFlowOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
+<body package="Amqp">codecMethodId		^1310740</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ChannelFlowOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4230,13 +7465,13 @@
 <methods>
 <class-id>Amqp08ChannelFlowOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^1310741</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
 <body package="Amqp">acceptableResponseClasses		^#()</body>
 
+<body package="Amqp">codecMethodId		^1310741</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4253,13 +7488,13 @@
 <methods>
 <class-id>Amqp08ChannelOpen</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^1310730</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: outOfBand</body>
-
 <body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ChannelOpenOk</body>
 
+<body package="Amqp">codecMethodId		^1310730</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	outOfBand := codec nextShortstr</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: outOfBand</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4268,13 +7503,13 @@
 <methods>
 <class-id>Amqp08ChannelOpenOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^1310731</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^1310731</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 </methods>
@@ -4283,21 +7518,21 @@
 <methods>
 <class-id>Amqp08ConnectionClose</class-id> <category>accessing</category>
 
-<body package="Amqp">replyText		^replyText</body>
-
 <body package="Amqp">classId: aValue		classId := aValue</body>
 
 <body package="Amqp">classId		^classId</body>
 
-<body package="Amqp">replyCode		^replyCode</body>
-
 <body package="Amqp">replyCode: aValue		replyCode := aValue</body>
 
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
+<body package="Amqp">replyText		^replyText</body>
 
 <body package="Amqp">methodId: aValue		methodId := aValue</body>
 
 <body package="Amqp">methodId		^methodId</body>
+
+<body package="Amqp">replyCode		^replyCode</body>
+
+<body package="Amqp">replyText: aValue		replyText := aValue</body>
 </methods>
 
 <methods>
@@ -4305,26 +7540,26 @@
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionCloseOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655420</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionCloseOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
+<body package="Amqp">codecMethodId		^655420</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08ConnectionCloseOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^655421</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^655421</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4335,27 +7570,27 @@
 
 <body package="Amqp">capabilities: aValue		capabilities := aValue</body>
 
-<body package="Amqp">insist		^insist</body>
-
 <body package="Amqp">virtualHost: aValue		virtualHost := aValue</body>
+
+<body package="Amqp">insist		^insist</body>
 
 <body package="Amqp">insist: aValue		insist := aValue</body>
 
-<body package="Amqp">capabilities		^capabilities</body>
-
 <body package="Amqp">virtualHost		^virtualHost</body>
+
+<body package="Amqp">capabilities		^capabilities</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ConnectionOpen</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^655400</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: virtualHost.	codec nextShortstrPut: capabilities.	bitBuffer := 0.	(insist ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
 <body package="Amqp">acceptableResponseClasses		^#(#Amqp08ConnectionOpenOk #Amqp08ConnectionRedirect)</body>
 
+<body package="Amqp">codecMethodId		^655400</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	virtualHost := codec nextShortstr.	capabilities := codec nextShortstr.	bitBuffer := codec nextOctet.	insist := (bitBuffer bitAnd: 1) ~= 0</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: virtualHost.	codec nextShortstrPut: capabilities.	bitBuffer := 0.	(insist ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4364,21 +7599,21 @@
 <methods>
 <class-id>Amqp08ConnectionOpenOk</class-id> <category>accessing</category>
 
-<body package="Amqp">knownHosts: aValue		knownHosts := aValue</body>
-
 <body package="Amqp">knownHosts		^knownHosts</body>
+
+<body package="Amqp">knownHosts: aValue		knownHosts := aValue</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ConnectionOpenOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^655401</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: knownHosts</body>
+<body package="Amqp">codecMethodId		^655401</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	knownHosts := codec nextShortstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: knownHosts</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4389,25 +7624,25 @@
 
 <body package="Amqp">host: aValue		host := aValue</body>
 
-<body package="Amqp">knownHosts		^knownHosts</body>
-
 <body package="Amqp">host		^host</body>
 
 <body package="Amqp">knownHosts: aValue		knownHosts := aValue</body>
+
+<body package="Amqp">knownHosts		^knownHosts</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ConnectionRedirect</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: host.	codec nextShortstrPut: knownHosts</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">codecMethodId		^655410</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	host := codec nextShortstr.	knownHosts := codec nextShortstr</body>
 
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: host.	codec nextShortstrPut: knownHosts</body>
+
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655410</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 </methods>
 
 
@@ -4422,13 +7657,13 @@
 <methods>
 <class-id>Amqp08ConnectionSecure</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^655380</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionSecureOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: challenge</body>
+<body package="Amqp">codecMethodId		^655380</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	challenge := codec nextLongstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionSecureOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: challenge</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4445,52 +7680,52 @@
 <methods>
 <class-id>Amqp08ConnectionSecureOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: response</body>
+<body package="Amqp">codecMethodId		^655381</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	response := codec nextLongstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: response</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655381</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08ConnectionStart</class-id> <category>accessing</category>
 
-<body package="Amqp">mechanisms		^mechanisms</body>
-
-<body package="Amqp">versionMajor		^versionMajor</body>
-
-<body package="Amqp">locales		^locales</body>
-
-<body package="Amqp">versionMinor: aValue		versionMinor := aValue</body>
-
 <body package="Amqp">mechanisms: aValue		mechanisms := aValue</body>
-
-<body package="Amqp">versionMajor: aValue		versionMajor := aValue</body>
 
 <body package="Amqp">serverProperties		^serverProperties</body>
 
-<body package="Amqp">versionMinor		^versionMinor</body>
+<body package="Amqp">locales		^locales</body>
 
 <body package="Amqp">serverProperties: aValue		serverProperties := aValue</body>
 
+<body package="Amqp">versionMajor		^versionMajor</body>
+
+<body package="Amqp">versionMinor: aValue		versionMinor := aValue</body>
+
 <body package="Amqp">locales: aValue		locales := aValue</body>
+
+<body package="Amqp">versionMajor: aValue		versionMajor := aValue</body>
+
+<body package="Amqp">mechanisms		^mechanisms</body>
+
+<body package="Amqp">versionMinor		^versionMinor</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ConnectionStart</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^655370</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionStartOk</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: versionMajor.	codec nextOctetPut: versionMinor.	codec nextTablePut: serverProperties.	codec nextLongstrPut: mechanisms.	codec nextLongstrPut: locales</body>
+<body package="Amqp">codecMethodId		^655370</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	versionMajor := codec nextOctet.	versionMinor := codec nextOctet.	serverProperties := codec nextTable.	mechanisms := codec nextLongstr.	locales := codec nextLongstr</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionStartOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: versionMajor.	codec nextOctetPut: versionMinor.	codec nextTablePut: serverProperties.	codec nextLongstrPut: mechanisms.	codec nextLongstrPut: locales</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4503,7 +7738,7 @@
 
 <body package="Amqp">locale		^locale</body>
 
-<body package="Amqp">response		^response</body>
+<body package="Amqp">clientProperties		^clientProperties</body>
 
 <body package="Amqp">clientProperties: aValue		clientProperties := aValue</body>
 
@@ -4511,7 +7746,7 @@
 
 <body package="Amqp">mechanism: aValue		mechanism := aValue</body>
 
-<body package="Amqp">clientProperties		^clientProperties</body>
+<body package="Amqp">response		^response</body>
 
 <body package="Amqp">locale: aValue		locale := aValue</body>
 </methods>
@@ -4519,13 +7754,13 @@
 <methods>
 <class-id>Amqp08ConnectionStartOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: clientProperties.	codec nextShortstrPut: mechanism.	codec nextLongstrPut: response.	codec nextShortstrPut: locale</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655371</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: clientProperties.	codec nextShortstrPut: mechanism.	codec nextLongstrPut: response.	codec nextShortstrPut: locale</body>
+<body package="Amqp">codecMethodId		^655371</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	clientProperties := codec nextTable.	mechanism := codec nextShortstr.	response := codec nextLongstr.	locale := codec nextShortstr</body>
 </methods>
@@ -4550,15 +7785,15 @@
 <methods>
 <class-id>Amqp08ConnectionTune</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
+<body package="Amqp">codecMethodId		^655390</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionTuneOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655390</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ConnectionTuneOk</body>
 </methods>
 
 
@@ -4581,43 +7816,43 @@
 <methods>
 <class-id>Amqp08ConnectionTuneOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^655391</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
+<body package="Amqp">codecMethodId		^655391</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08DtxSelect</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^6553610</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08DtxSelectOk</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^6553610</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08DtxSelectOk</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08DtxSelectOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^6553611</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
 <body package="Amqp">acceptableResponseClasses		^#()</body>
 
+<body package="Amqp">codecMethodId		^6553611</body>
+
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
+
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4634,28 +7869,28 @@
 <methods>
 <class-id>Amqp08DtxStart</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: dtxIdentifier</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08DtxStartOk</body>
+<body package="Amqp">codecMethodId		^6553620</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	dtxIdentifier := codec nextShortstr</body>
 
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: dtxIdentifier</body>
+
 <body package="Amqp">hasContents		^false</body>
 
-<body package="Amqp">codecMethodId		^6553620</body>
+<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08DtxStartOk</body>
 </methods>
 
 
 <methods>
 <class-id>Amqp08DtxStartOk</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">codecMethodId		^6553621</body>
+<body package="Amqp">acceptableResponseClasses		^#()</body>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
+<body package="Amqp">codecMethodId		^6553621</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
 
-<body package="Amqp">acceptableResponseClasses		^#()</body>
+<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
 
 <body package="Amqp">hasContents		^false</body>
 </methods>
@@ -4664,23 +7899,25 @@
 <methods>
 <class-id>Amqp08ExchangeDeclare</class-id> <category>accessing</category>
 
-<body package="Amqp">durable		^durable</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
+<body package="Amqp">internal: aValue		internal := aValue</body>
 
 <body package="Amqp">ticket		^ticket</body>
 
+<body package="Amqp">exchange: aValue		exchange := aValue</body>
+
+<body package="Amqp">passive: aValue		passive := aValue</body>
+
 <body package="Amqp">autoDelete: aValue		autoDelete := aValue</body>
 
-<body package="Amqp">durable: aValue		durable := aValue</body>
+<body package="Amqp">exchange		^exchange</body>
 
 <body package="Amqp">ticket: aValue		ticket := aValue</body>
 
+<body package="Amqp">durable		^durable</body>
+
 <body package="Amqp">arguments: aValue		arguments := aValue</body>
 
-<body package="Amqp">passive: aValue		passive := aValue</body>
+<body package="Amqp">durable: aValue		durable := aValue</body>
 
 <body package="Amqp">arguments		^arguments</body>
 
@@ -4688,3261 +7925,29 @@
 
 <body package="Amqp">passive		^passive</body>
 
+<body package="Amqp">autoDelete		^autoDelete</body>
+
 <body package="Amqp">internal		^internal</body>
+
+<body package="Amqp">nowait: aValue		nowait := aValue</body>
 
 <body package="Amqp">type: aValue		type := aValue</body>
 
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
 <body package="Amqp">type		^type</body>
-
-<body package="Amqp">autoDelete		^autoDelete</body>
-
-<body package="Amqp">internal: aValue		internal := aValue</body>
 </methods>
 
 <methods>
 <class-id>Amqp08ExchangeDeclare</class-id> <category>AMQP codec</category>
 
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: type.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(internal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+<body package="Amqp">codecMethodId		^2621450</body>
 
 <body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	type := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	autoDelete := (bitBuffer bitAnd: 4) ~= 0.	internal := (bitBuffer bitAnd: 8) ~= 0.	nowait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
 
+<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: type.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(internal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
+
+<body package="Amqp">hasContents		^false</body>
+
 <body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ExchangeDeclareOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^2621450</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08ExchangeDeclareOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^2621451</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08ExchangeDelete</class-id> <category>accessing</category>
-
-<body package="Amqp">ifUnused		^ifUnused</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08ExchangeDelete</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08ExchangeDeleteOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^2621460</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	nowait := (bitBuffer bitAnd: 2) ~= 0</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08ExchangeDeleteOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^2621461</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileAck</class-id> <category>accessing</category>
-
-<body package="Amqp">multiple: aValue		multiple := aValue</body>
-
-<body package="Amqp">multiple		^multiple</body>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileAck</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	multiple := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587610</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileCancel</class-id> <category>accessing</category>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">nowait		^nowait</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileCancel</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileCancelOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587550</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileCancelOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileCancelOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587551</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileConsume</class-id> <category>accessing</category>
-
-<body package="Amqp">noAck: aValue		noAck := aValue</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">noAck		^noAck</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">noLocal		^noLocal</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileConsume</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587540</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	noAck := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	nowait := (bitBuffer bitAnd: 8) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileConsumeOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileConsumeOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileConsumeOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587541</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileDeliver</class-id> <category>accessing</category>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">redelivered		^redelivered</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">identifier		^identifier</body>
-
-<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">identifier: aValue		identifier := aValue</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileDeliver</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587600</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextShortstrPut: identifier</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	identifier := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileOpen</class-id> <category>accessing</category>
-
-<body package="Amqp">identifier: aValue		identifier := aValue</body>
-
-<body package="Amqp">contentSize		^contentSize</body>
-
-<body package="Amqp">contentSize: aValue		contentSize := aValue</body>
-
-<body package="Amqp">identifier		^identifier</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileOpen</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	identifier := codec nextShortstr.	contentSize := codec nextLonglong</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileOpenOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587560</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: identifier.	codec nextLonglongPut: contentSize</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileOpenOk</class-id> <category>accessing</category>
-
-<body package="Amqp">stagedSize		^stagedSize</body>
-
-<body package="Amqp">stagedSize: aValue		stagedSize := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileOpenOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587561</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: stagedSize</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileStage</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	stagedSize := codec nextLonglong</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FilePublish</class-id> <category>accessing</category>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">identifier: aValue		identifier := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">mandatory		^mandatory</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">immediate		^immediate</body>
-
-<body package="Amqp">immediate: aValue		immediate := aValue</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">identifier		^identifier</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FilePublish</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587580</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: identifier</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0.	identifier := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileQos</class-id> <category>accessing</category>
-
-<body package="Amqp">prefetchCount		^prefetchCount</body>
-
-<body package="Amqp">prefetchSize		^prefetchSize</body>
-
-<body package="Amqp">global: aValue		global := aValue</body>
-
-<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
-
-<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
-
-<body package="Amqp">global		^global</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileQos</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08FileQosOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587530</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileQosOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^4587531</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileReject</class-id> <category>accessing</category>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">requeue		^requeue</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">requeue: aValue		requeue := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileReject</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^4587620</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileReturn</class-id> <category>accessing</category>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">replyCode		^replyCode</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-
-<body package="Amqp">replyText		^replyText</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileReturn</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^4587590</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileStage</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^4587570</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueBind</class-id> <category>accessing</category>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueueBind</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0.	arguments := codec nextTable</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276820</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueBindOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueBindOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276821</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueDeclare</class-id> <category>accessing</category>
-
-<body package="Amqp">autoDelete: aValue		autoDelete := aValue</body>
-
-<body package="Amqp">durable: aValue		durable := aValue</body>
-
-<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">passive: aValue		passive := aValue</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">passive		^passive</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">autoDelete		^autoDelete</body>
-
-<body package="Amqp">durable		^durable</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueueDeclare</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276810</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueDeclareOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	autoDelete := (bitBuffer bitAnd: 8) ~= 0.	nowait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueDeclareOk</class-id> <category>accessing</category>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">consumerCount		^consumerCount</body>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">consumerCount: aValue		consumerCount := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueueDeclareOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276811</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: queue.	codec nextLongPut: messageCount.	codec nextLongPut: consumerCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	queue := codec nextShortstr.	messageCount := codec nextLong.	consumerCount := codec nextLong</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueDelete</class-id> <category>accessing</category>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">ifUnused		^ifUnused</body>
-
-<body package="Amqp">ifEmpty		^ifEmpty</body>
-
-<body package="Amqp">ifEmpty: aValue		ifEmpty := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueueDelete</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276840</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(ifEmpty ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	ifEmpty := (bitBuffer bitAnd: 2) ~= 0.	nowait := (bitBuffer bitAnd: 4) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueueDeleteOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueueDeleteOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueueDeleteOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276841</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueuePurge</class-id> <category>accessing</category>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">nowait		^nowait</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueuePurge</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276830</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08QueuePurgeOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08QueuePurgeOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08QueuePurgeOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276831</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamCancel</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamCancel</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5242910</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	nowait := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamCancelOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamCancelOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamCancelOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5242911</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamConsume</class-id> <category>accessing</category>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">nowait		^nowait</body>
-
-<body package="Amqp">nowait: aValue		nowait := aValue</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">noLocal		^noLocal</body>
-
-<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
-
-<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamConsume</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5242900</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(nowait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	exclusive := (bitBuffer bitAnd: 2) ~= 0.	nowait := (bitBuffer bitAnd: 4) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamConsumeOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamConsumeOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamConsumeOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5242901</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamDeliver</class-id> <category>accessing</category>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamDeliver</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5242940</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	codec nextShortstrPut: exchange.	codec nextShortstrPut: queue</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	exchange := codec nextShortstr.	queue := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamPublish</class-id> <category>accessing</category>
-
-<body package="Amqp">ticket		^ticket</body>
-
-<body package="Amqp">immediate: aValue		immediate := aValue</body>
-
-<body package="Amqp">immediate		^immediate</body>
-
-<body package="Amqp">ticket: aValue		ticket := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">mandatory		^mandatory</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamPublish</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^5242920</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: ticket.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	ticket := codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamQos</class-id> <category>accessing</category>
-
-<body package="Amqp">global		^global</body>
-
-<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
-
-<body package="Amqp">consumeRate: aValue		consumeRate := aValue</body>
-
-<body package="Amqp">consumeRate		^consumeRate</body>
-
-<body package="Amqp">prefetchCount		^prefetchCount</body>
-
-<body package="Amqp">prefetchSize		^prefetchSize</body>
-
-<body package="Amqp">global: aValue		global := aValue</body>
-
-<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamQos</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5242890</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	codec nextLongPut: consumeRate.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	consumeRate := codec nextLong.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08StreamQosOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamQosOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5242891</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamReturn</class-id> <category>accessing</category>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">replyCode		^replyCode</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-
-<body package="Amqp">replyText		^replyText</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamReturn</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5242930</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestContent</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^7864360</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestContentOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestContentOk</class-id> <category>accessing</category>
-
-<body package="Amqp">contentChecksum: aValue		contentChecksum := aValue</body>
-
-<body package="Amqp">contentChecksum		^contentChecksum</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestContentOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^7864361</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: contentChecksum</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	contentChecksum := codec nextLong</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestInteger</class-id> <category>accessing</category>
-
-<body package="Amqp">integer1		^integer1</body>
-
-<body package="Amqp">integer1: aValue		integer1 := aValue</body>
-
-<body package="Amqp">integer3: aValue		integer3 := aValue</body>
-
-<body package="Amqp">integer4: aValue		integer4 := aValue</body>
-
-<body package="Amqp">operation		^operation</body>
-
-<body package="Amqp">integer2: aValue		integer2 := aValue</body>
-
-<body package="Amqp">operation: aValue		operation := aValue</body>
-
-<body package="Amqp">integer2		^integer2</body>
-
-<body package="Amqp">integer3		^integer3</body>
-
-<body package="Amqp">integer4		^integer4</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestInteger</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	integer1 := codec nextOctet.	integer2 := codec nextShort.	integer3 := codec nextLong.	integer4 := codec nextLonglong.	operation := codec nextOctet</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestIntegerOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^7864330</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: integer1.	codec nextShortPut: integer2.	codec nextLongPut: integer3.	codec nextLonglongPut: integer4.	codec nextOctetPut: operation</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestIntegerOk</class-id> <category>accessing</category>
-
-<body package="Amqp">result		^result</body>
-
-<body package="Amqp">result: aValue		result := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestIntegerOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: result</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	result := codec nextLonglong</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^7864331</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestString</class-id> <category>accessing</category>
-
-<body package="Amqp">string2: aValue		string2 := aValue</body>
-
-<body package="Amqp">operation: aValue		operation := aValue</body>
-
-<body package="Amqp">string1		^string1</body>
-
-<body package="Amqp">operation		^operation</body>
-
-<body package="Amqp">string1: aValue		string1 := aValue</body>
-
-<body package="Amqp">string2		^string2</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestString</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	string1 := codec nextShortstr.	string2 := codec nextLongstr.	operation := codec nextOctet</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestStringOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^7864340</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: string1.	codec nextLongstrPut: string2.	codec nextOctetPut: operation</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestStringOk</class-id> <category>accessing</category>
-
-<body package="Amqp">result		^result</body>
-
-<body package="Amqp">result: aValue		result := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestStringOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	result := codec nextLongstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^7864341</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: result</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestTable</class-id> <category>accessing</category>
-
-<body package="Amqp">table: aValue		table := aValue</body>
-
-<body package="Amqp">stringOp		^stringOp</body>
-
-<body package="Amqp">integerOp		^integerOp</body>
-
-<body package="Amqp">stringOp: aValue		stringOp := aValue</body>
-
-<body package="Amqp">integerOp: aValue		integerOp := aValue</body>
-
-<body package="Amqp">table		^table</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestTable</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^7864350</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: table.	codec nextOctetPut: integerOp.	codec nextOctetPut: stringOp</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	table := codec nextTable.	integerOp := codec nextOctet.	stringOp := codec nextOctet</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TestTableOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TestTableOk</class-id> <category>accessing</category>
-
-<body package="Amqp">integerResult		^integerResult</body>
-
-<body package="Amqp">integerResult: aValue		integerResult := aValue</body>
-
-<body package="Amqp">stringResult: aValue		stringResult := aValue</body>
-
-<body package="Amqp">stringResult		^stringResult</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TestTableOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^7864351</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: integerResult.	codec nextLongstrPut: stringResult</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	integerResult := codec nextLonglong.	stringResult := codec nextLongstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TunnelRequest</class-id> <category>accessing</category>
-
-<body package="Amqp">metaData: aValue		metaData := aValue</body>
-
-<body package="Amqp">metaData		^metaData</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TunnelRequest</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^7208970</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: metaData</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	metaData := codec nextTable</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxCommit</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5898260</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxCommitOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxCommitOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5898261</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxRollback</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxRollbackOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898270</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxRollbackOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898271</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxSelect</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp08TxSelectOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898250</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TxSelectOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898251</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicAck</class-id> <category>accessing</category>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">multiple: aValue		multiple := aValue</body>
-
-<body package="Amqp">multiple		^multiple</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicAck</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932240</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(multiple ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	multiple := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicCancel</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicCancel</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932190</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicCancelOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicCancelOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicCancelOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932191</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicConsume</class-id> <category>accessing</category>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">noAck		^noAck</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">noLocal		^noLocal</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-
-<body package="Amqp">noLocal: aValue		noLocal := aValue</body>
-
-<body package="Amqp">noAck: aValue		noAck := aValue</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicConsume</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932180</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: consumerTag.	bitBuffer := 0.	(noLocal ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicConsumeOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	consumerTag := codec nextShortstr.	bitBuffer := codec nextOctet.	noLocal := (bitBuffer bitAnd: 1) ~= 0.	noAck := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	noWait := (bitBuffer bitAnd: 8) ~= 0.	arguments := codec nextTable</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicConsumeOk</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicConsumeOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932181</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicDeliver</class-id> <category>accessing</category>
-
-<body package="Amqp">consumerTag		^consumerTag</body>
-
-<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">redelivered		^redelivered</body>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">consumerTag: aValue		consumerTag := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicDeliver</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^3932220</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: consumerTag.	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	consumerTag := codec nextShortstr.	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicGet</class-id> <category>accessing</category>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">noAck		^noAck</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">noAck: aValue		noAck := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicGet</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932230</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noAck ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicGetEmpty with: Amqp091BasicGetOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	noAck := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicGetEmpty</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932232</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicGetOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">redelivered		^redelivered</body>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">redelivered: aValue		redelivered := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicGetOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932231</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(redelivered ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	redelivered := (bitBuffer bitAnd: 1) ~= 0.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	messageCount := codec nextLong</body>
-
-<body package="Amqp">hasContents		^true</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicPublish</class-id> <category>accessing</category>
-
-<body package="Amqp">immediate: aValue		immediate := aValue</body>
-
-<body package="Amqp">immediate		^immediate</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">mandatory		^mandatory</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">mandatory: aValue		mandatory := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicPublish</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	mandatory := (bitBuffer bitAnd: 1) ~= 0.	immediate := (bitBuffer bitAnd: 2) ~= 0</body>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^3932200</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(mandatory ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(immediate ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicQos</class-id> <category>accessing</category>
-
-<body package="Amqp">global: aValue		global := aValue</body>
-
-<body package="Amqp">prefetchCount: aValue		prefetchCount := aValue</body>
-
-<body package="Amqp">global		^global</body>
-
-<body package="Amqp">prefetchSize: aValue		prefetchSize := aValue</body>
-
-<body package="Amqp">prefetchCount		^prefetchCount</body>
-
-<body package="Amqp">prefetchSize		^prefetchSize</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicQos</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932170</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: prefetchSize.	codec nextShortPut: prefetchCount.	bitBuffer := 0.	(global ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091BasicQosOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	prefetchSize := codec nextLong.	prefetchCount := codec nextShort.	bitBuffer := codec nextOctet.	global := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicQosOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932171</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicRecover</class-id> <category>accessing</category>
-
-<body package="Amqp">requeue		^requeue</body>
-
-<body package="Amqp">requeue: aValue		requeue := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicRecover</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932270</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicRecoverAsync</class-id> <category>accessing</category>
-
-<body package="Amqp">requeue: aValue		requeue := aValue</body>
-
-<body package="Amqp">requeue		^requeue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicRecoverAsync</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3932260</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicRecoverOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932271</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicReject</class-id> <category>accessing</category>
-
-<body package="Amqp">deliveryTag: aValue		deliveryTag := aValue</body>
-
-<body package="Amqp">requeue: aValue		requeue := aValue</body>
-
-<body package="Amqp">deliveryTag		^deliveryTag</body>
-
-<body package="Amqp">requeue		^requeue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicReject</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLonglongPut: deliveryTag.	bitBuffer := 0.	(requeue ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	deliveryTag := codec nextLonglong.	bitBuffer := codec nextOctet.	requeue := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3932250</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicReturn</class-id> <category>accessing</category>
-
-<body package="Amqp">replyText		^replyText</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">replyCode		^replyCode</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicReturn</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^true</body>
-
-<body package="Amqp">codecMethodId		^3932210</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelClose</class-id> <category>accessing</category>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-
-<body package="Amqp">methodId: aValue		methodId := aValue</body>
-
-<body package="Amqp">methodId		^methodId</body>
-
-<body package="Amqp">replyText		^replyText</body>
-
-<body package="Amqp">classId: aValue		classId := aValue</body>
-
-<body package="Amqp">classId		^classId</body>
-
-<body package="Amqp">replyCode		^replyCode</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ChannelClose</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^1310760</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelCloseOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelCloseOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^1310761</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelFlow</class-id> <category>accessing</category>
-
-<body package="Amqp">active: aValue		active := aValue</body>
-
-<body package="Amqp">active		^active</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ChannelFlow</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelFlowOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^1310740</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelFlowOk</class-id> <category>accessing</category>
-
-<body package="Amqp">active		^active</body>
-
-<body package="Amqp">active: aValue		active := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ChannelFlowOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	bitBuffer := 0.	(active ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	bitBuffer := codec nextOctet.	active := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^1310741</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelOpen</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ChannelOpenOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^1310730</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ChannelOpenOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^1310731</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: nil</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextLongstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionClose</class-id> <category>accessing</category>
-
-<body package="Amqp">methodId: aValue		methodId := aValue</body>
-
-<body package="Amqp">methodId		^methodId</body>
-
-<body package="Amqp">replyText		^replyText</body>
-
-<body package="Amqp">classId: aValue		classId := aValue</body>
-
-<body package="Amqp">classId		^classId</body>
-
-<body package="Amqp">replyCode		^replyCode</body>
-
-<body package="Amqp">replyCode: aValue		replyCode := aValue</body>
-
-<body package="Amqp">replyText: aValue		replyText := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionClose</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: replyCode.	codec nextShortstrPut: replyText.	codec nextShortPut: classId.	codec nextShortPut: methodId</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	replyCode := codec nextShort.	replyText := codec nextShortstr.	classId := codec nextShort.	methodId := codec nextShort</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionCloseOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^655410</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionCloseOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^655411</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionOpen</class-id> <category>accessing</category>
-
-<body package="Amqp">virtualHost: aValue		virtualHost := aValue</body>
-
-<body package="Amqp">virtualHost		^virtualHost</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionOpen</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^655400</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: virtualHost.	codec nextShortstrPut: nil.	bitBuffer := 0.	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	virtualHost := codec nextShortstr.	codec nextShortstr.	bitBuffer := codec nextOctet</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionOpenOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionOpenOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^655401</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: nil</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionSecure</class-id> <category>accessing</category>
-
-<body package="Amqp">challenge: aValue		challenge := aValue</body>
-
-<body package="Amqp">challenge		^challenge</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionSecure</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^655380</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: challenge</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionSecureOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	challenge := codec nextLongstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionSecureOk</class-id> <category>accessing</category>
-
-<body package="Amqp">response		^response</body>
-
-<body package="Amqp">response: aValue		response := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionSecureOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^655381</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongstrPut: response</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	response := codec nextLongstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionStart</class-id> <category>accessing</category>
-
-<body package="Amqp">versionMinor		^versionMinor</body>
-
-<body package="Amqp">serverProperties: aValue		serverProperties := aValue</body>
-
-<body package="Amqp">mechanisms		^mechanisms</body>
-
-<body package="Amqp">locales: aValue		locales := aValue</body>
-
-<body package="Amqp">versionMajor		^versionMajor</body>
-
-<body package="Amqp">locales		^locales</body>
-
-<body package="Amqp">versionMinor: aValue		versionMinor := aValue</body>
-
-<body package="Amqp">mechanisms: aValue		mechanisms := aValue</body>
-
-<body package="Amqp">versionMajor: aValue		versionMajor := aValue</body>
-
-<body package="Amqp">serverProperties		^serverProperties</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionStart</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^655370</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextOctetPut: versionMajor.	codec nextOctetPut: versionMinor.	codec nextTablePut: serverProperties.	codec nextLongstrPut: mechanisms.	codec nextLongstrPut: locales</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionStartOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	versionMajor := codec nextOctet.	versionMinor := codec nextOctet.	serverProperties := codec nextTable.	mechanisms := codec nextLongstr.	locales := codec nextLongstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionStartOk</class-id> <category>accessing</category>
-
-<body package="Amqp">response: aValue		response := aValue</body>
-
-<body package="Amqp">mechanism: aValue		mechanism := aValue</body>
-
-<body package="Amqp">clientProperties		^clientProperties</body>
-
-<body package="Amqp">locale: aValue		locale := aValue</body>
-
-<body package="Amqp">mechanism		^mechanism</body>
-
-<body package="Amqp">locale		^locale</body>
-
-<body package="Amqp">response		^response</body>
-
-<body package="Amqp">clientProperties: aValue		clientProperties := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionStartOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^655371</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextTablePut: clientProperties.	codec nextShortstrPut: mechanism.	codec nextLongstrPut: response.	codec nextShortstrPut: locale</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	clientProperties := codec nextTable.	mechanism := codec nextShortstr.	response := codec nextLongstr.	locale := codec nextShortstr</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionTune</class-id> <category>accessing</category>
-
-<body package="Amqp">channelMax		^channelMax</body>
-
-<body package="Amqp">heartbeat: aValue		heartbeat := aValue</body>
-
-<body package="Amqp">heartbeat		^heartbeat</body>
-
-<body package="Amqp">frameMax: aValue		frameMax := aValue</body>
-
-<body package="Amqp">frameMax		^frameMax</body>
-
-<body package="Amqp">channelMax: aValue		channelMax := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionTune</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ConnectionTuneOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^655390</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ConnectionTuneOk</class-id> <category>accessing</category>
-
-<body package="Amqp">heartbeat: aValue		heartbeat := aValue</body>
-
-<body package="Amqp">heartbeat		^heartbeat</body>
-
-<body package="Amqp">frameMax: aValue		frameMax := aValue</body>
-
-<body package="Amqp">frameMax		^frameMax</body>
-
-<body package="Amqp">channelMax: aValue		channelMax := aValue</body>
-
-<body package="Amqp">channelMax		^channelMax</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ConnectionTuneOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: channelMax.	codec nextLongPut: frameMax.	codec nextShortPut: heartbeat</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	channelMax := codec nextShort.	frameMax := codec nextLong.	heartbeat := codec nextShort</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^655391</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ExchangeDeclare</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">autoDelete: aBoolean</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ExchangeDeclare</class-id> <category>accessing</category>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">type: aValue		type := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">durable: aValue		durable := aValue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">passive		^passive</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">passive: aValue		passive := aValue</body>
-
-<body package="Amqp">durable		^durable</body>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">type		^type</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ExchangeDeclare</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^2621450</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	codec nextShortstrPut: type.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	type := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	noWait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ExchangeDeclareOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ExchangeDeclareOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^2621451</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ExchangeDelete</class-id> <category>accessing</category>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">ifUnused		^ifUnused</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
-
-<body package="Amqp">noWait		^noWait</body>
-</methods>
-
-<methods>
-<class-id>Amqp091ExchangeDelete</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^2621460</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: exchange.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	exchange := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	noWait := (bitBuffer bitAnd: 2) ~= 0</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091ExchangeDeleteOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091ExchangeDeleteOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^2621461</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueBind</class-id> <category>accessing</category>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueBind</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0.	arguments := codec nextTable</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276820</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueBindOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueBindOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276821</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueDeclare</class-id> <category>accessing</category>
-
-<body package="Amqp">passive: aValue		passive := aValue</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">exclusive		^exclusive</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">passive		^passive</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">autoDelete		^autoDelete</body>
-
-<body package="Amqp">durable		^durable</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">autoDelete: aValue		autoDelete := aValue</body>
-
-<body package="Amqp">durable: aValue		durable := aValue</body>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">exclusive: aValue		exclusive := aValue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueDeclare</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueDeclareOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276810</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(passive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(durable ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(exclusive ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	(autoDelete ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 8].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 16].	codec nextOctetPut: bitBuffer.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	passive := (bitBuffer bitAnd: 1) ~= 0.	durable := (bitBuffer bitAnd: 2) ~= 0.	exclusive := (bitBuffer bitAnd: 4) ~= 0.	autoDelete := (bitBuffer bitAnd: 8) ~= 0.	noWait := (bitBuffer bitAnd: 16) ~= 0.	arguments := codec nextTable</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueDeclareOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">consumerCount: aValue		consumerCount := aValue</body>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">consumerCount		^consumerCount</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueDeclareOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	queue := codec nextShortstr.	messageCount := codec nextLong.	consumerCount := codec nextLong</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276811</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortstrPut: queue.	codec nextLongPut: messageCount.	codec nextLongPut: consumerCount</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueDelete</class-id> <category>accessing</category>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">ifUnused: aValue		ifUnused := aValue</body>
-
-<body package="Amqp">noWait		^noWait</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">ifEmpty		^ifEmpty</body>
-
-<body package="Amqp">ifUnused		^ifUnused</body>
-
-<body package="Amqp">ifEmpty: aValue		ifEmpty := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueDelete</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueDeleteOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	ifUnused := (bitBuffer bitAnd: 1) ~= 0.	ifEmpty := (bitBuffer bitAnd: 2) ~= 0.	noWait := (bitBuffer bitAnd: 4) ~= 0</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276840</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(ifUnused ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	(ifEmpty ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 2].	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 4].	codec nextOctetPut: bitBuffer</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueDeleteOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-
-<body package="Amqp">messageCount		^messageCount</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueDeleteOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276841</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueuePurge</class-id> <category>accessing</category>
-
-<body package="Amqp">noWait: aValue		noWait := aValue</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">noWait		^noWait</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueuePurge</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	bitBuffer := 0.	(noWait ifNil: [false]) ifTrue: [bitBuffer := bitBuffer bitOr: 1].	codec nextOctetPut: bitBuffer</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueuePurgeOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	bitBuffer := codec nextOctet.	noWait := (bitBuffer bitAnd: 1) ~= 0</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276830</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueuePurgeOk</class-id> <category>accessing</category>
-
-<body package="Amqp">messageCount		^messageCount</body>
-
-<body package="Amqp">messageCount: aValue		messageCount := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueuePurgeOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^3276831</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextLongPut: messageCount</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	messageCount := codec nextLong</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueUnbind</class-id> <category>accessing</category>
-
-<body package="Amqp">routingKey: aValue		routingKey := aValue</body>
-
-<body package="Amqp">exchange: aValue		exchange := aValue</body>
-
-<body package="Amqp">exchange		^exchange</body>
-
-<body package="Amqp">queue		^queue</body>
-
-<body package="Amqp">arguments: aValue		arguments := aValue</body>
-
-<body package="Amqp">routingKey		^routingKey</body>
-
-<body package="Amqp">arguments		^arguments</body>
-
-<body package="Amqp">queue: aValue		queue := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091QueueUnbind</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276850</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |	codec nextShortPut: 0.	codec nextShortstrPut: queue.	codec nextShortstrPut: exchange.	codec nextShortstrPut: routingKey.	codec nextTablePut: arguments</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |	codec nextShort.	queue := codec nextShortstr.	exchange := codec nextShortstr.	routingKey := codec nextShortstr.	arguments := codec nextTable</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091QueueUnbindOk</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091QueueUnbindOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^3276851</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxCommit</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxCommitOk</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898260</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxCommitOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898261</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxRollback</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5898270</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxRollbackOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxRollbackOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5898271</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxSelect</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">hasContents		^false</body>
-
-<body package="Amqp">codecMethodId		^5898250</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^Array with: Amqp091TxSelectOk</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091TxSelectOk</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecMethodId		^5898251</body>
-
-<body package="Amqp">encodeOn: codec		| bitBuffer |</body>
-
-<body package="Amqp">decodeFrom: codec		| bitBuffer |</body>
-
-<body package="Amqp">acceptableResponseClasses		^#()</body>
-
-<body package="Amqp">hasContents		^false</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpProtocolProperties</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">encodeFlags: flagsToEncode on: codec		| flags remainder partialFlags |	flags := flagsToEncode.	[remainder := flags bitShift: -16.	partialFlags := flags bitAnd: 16rFFFE.	remainder = 0 ifFalse: [partialFlags := partialFlags bitOr: 1].	codec nextShortPut: partialFlags.	flags := remainder.	flags = 0 ifTrue: [^self]] repeat</body>
-
-<body package="Amqp">codecClassId		self subclassResponsibility</body>
-
-<body package="Amqp">encodeOn: codec		self subclassResponsibility</body>
-
-<body package="Amqp">decodeFrom: codec		self subclassResponsibility</body>
-
-<body package="Amqp">decodeFlagsFrom: codec		| flags flagWordIndex partialFlags |	flags := 0.	flagWordIndex := 0.	[partialFlags := codec nextShort.	flags := flags bitOr: (partialFlags bitShift: flagWordIndex * 16).	(partialFlags bitAnd: 1) = 0 ifTrue: [^flags].	flagWordIndex := flagWordIndex + 1] repeat</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08BasicProperties</class-id> <category>accessing</category>
-
-<body package="Amqp">headers: aValue		headers := aValue</body>
-
-<body package="Amqp">messageId		^messageId</body>
-
-<body package="Amqp">appId: aValue		appId := aValue</body>
-
-<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
-
-<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
-
-<body package="Amqp">headers		^headers</body>
-
-<body package="Amqp">contentType		^contentType</body>
-
-<body package="Amqp">appId		^appId</body>
-
-<body package="Amqp">type		^type</body>
-
-<body package="Amqp">replyTo		^replyTo</body>
-
-<body package="Amqp">correlationId: aValue		correlationId := aValue</body>
-
-<body package="Amqp">type: aValue		type := aValue</body>
-
-<body package="Amqp">contentEncoding		^contentEncoding</body>
-
-<body package="Amqp">priority: aValue		priority := aValue</body>
-
-<body package="Amqp">userId: aValue		userId := aValue</body>
-
-<body package="Amqp">deliveryMode		^deliveryMode</body>
-
-<body package="Amqp">priority		^priority</body>
-
-<body package="Amqp">clusterId: aValue		clusterId := aValue</body>
-
-<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
-
-<body package="Amqp">correlationId		^correlationId</body>
-
-<body package="Amqp">timestamp		^timestamp</body>
-
-<body package="Amqp">deliveryMode: aValue		deliveryMode := aValue</body>
-
-<body package="Amqp">messageId: aValue		messageId := aValue</body>
-
-<body package="Amqp">expiration		^expiration</body>
-
-<body package="Amqp">expiration: aValue		expiration := aValue</body>
-
-<body package="Amqp">contentType: aValue		contentType := aValue</body>
-
-<body package="Amqp">clusterId		^clusterId</body>
-
-<body package="Amqp">userId		^userId</body>
-</methods>
-
-<methods>
-<class-id>Amqp08BasicProperties</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecClassId		^60</body>
-
-<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	deliveryMode isNil ifFalse: [qFlags := qFlags bitOr: 4096].	priority isNil ifFalse: [qFlags := qFlags bitOr: 2048].	correlationId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 512].	expiration isNil ifFalse: [qFlags := qFlags bitOr: 256].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 128].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 64].	type isNil ifFalse: [qFlags := qFlags bitOr: 32].	userId isNil ifFalse: [qFlags := qFlags bitOr: 16].	appId isNil ifFalse: [qFlags := qFlags bitOr: 8].	clusterId isNil ifFalse: [qFlags := qFlags bitOr: 4].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	deliveryMode isNil ifFalse: [codec nextOctetPut: deliveryMode].	priority isNil ifFalse: [codec nextOctetPut: priority].	correlationId isNil ifFalse: [codec nextShortstrPut: correlationId].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	expiration isNil ifFalse: [codec nextShortstrPut: expiration].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	type isNil ifFalse: [codec nextShortstrPut: type].	userId isNil ifFalse: [codec nextShortstrPut: userId].	appId isNil ifFalse: [codec nextShortstrPut: appId].	clusterId isNil ifFalse: [codec nextShortstrPut: clusterId]</body>
-
-<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [deliveryMode := nil]		ifFalse: [deliveryMode := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 1024) = 0		ifTrue: [correlationId := nil]		ifFalse: [correlationId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [expiration := nil]		ifFalse: [expiration := codec nextShortstr].	(qFlags bitAnd: 128) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 64) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 32) = 0		ifTrue: [type := nil]		ifFalse: [type := codec nextShortstr].	(qFlags bitAnd: 16) = 0		ifTrue: [userId := nil]		ifFalse: [userId := codec nextShortstr].	(qFlags bitAnd: 8) = 0		ifTrue: [appId := nil]		ifFalse: [appId := codec nextShortstr].	(qFlags bitAnd: 4) = 0		ifTrue: [clusterId := nil]		ifFalse: [clusterId := codec nextShortstr]</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08FileProperties</class-id> <category>accessing</category>
-
-<body package="Amqp">headers		^headers</body>
-
-<body package="Amqp">filename: aValue		filename := aValue</body>
-
-<body package="Amqp">clusterId: aValue		clusterId := aValue</body>
-
-<body package="Amqp">replyTo		^replyTo</body>
-
-<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
-
-<body package="Amqp">headers: aValue		headers := aValue</body>
-
-<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
-
-<body package="Amqp">contentEncoding		^contentEncoding</body>
-
-<body package="Amqp">priority: aValue		priority := aValue</body>
-
-<body package="Amqp">timestamp		^timestamp</body>
-
-<body package="Amqp">contentType		^contentType</body>
-
-<body package="Amqp">clusterId		^clusterId</body>
-
-<body package="Amqp">messageId		^messageId</body>
-
-<body package="Amqp">messageId: aValue		messageId := aValue</body>
-
-<body package="Amqp">contentType: aValue		contentType := aValue</body>
-
-<body package="Amqp">filename		^filename</body>
-
-<body package="Amqp">priority		^priority</body>
-
-<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08FileProperties</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecClassId		^70</body>
-
-<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	priority isNil ifFalse: [qFlags := qFlags bitOr: 4096].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 2048].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	filename isNil ifFalse: [qFlags := qFlags bitOr: 512].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 256].	clusterId isNil ifFalse: [qFlags := qFlags bitOr: 128].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	priority isNil ifFalse: [codec nextOctetPut: priority].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	filename isNil ifFalse: [codec nextShortstrPut: filename].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	clusterId isNil ifFalse: [codec nextShortstrPut: clusterId]</body>
-
-<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 1024) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [filename := nil]		ifFalse: [filename := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 128) = 0		ifTrue: [clusterId := nil]		ifFalse: [clusterId := codec nextShortstr]</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08StreamProperties</class-id> <category>accessing</category>
-
-<body package="Amqp">contentEncoding		^contentEncoding</body>
-
-<body package="Amqp">priority: aValue		priority := aValue</body>
-
-<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
-
-<body package="Amqp">headers		^headers</body>
-
-<body package="Amqp">contentType: aValue		contentType := aValue</body>
-
-<body package="Amqp">timestamp		^timestamp</body>
-
-<body package="Amqp">contentType		^contentType</body>
-
-<body package="Amqp">headers: aValue		headers := aValue</body>
-
-<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
-
-<body package="Amqp">priority		^priority</body>
-</methods>
-
-<methods>
-<class-id>Amqp08StreamProperties</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecClassId		^80</body>
-
-<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	priority isNil ifFalse: [qFlags := qFlags bitOr: 4096].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 2048].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	priority isNil ifFalse: [codec nextOctetPut: priority].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp]</body>
-
-<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp]</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp08TunnelProperties</class-id> <category>accessing</category>
-
-<body package="Amqp">proxyName: aValue		proxyName := aValue</body>
-
-<body package="Amqp">durable: aValue		durable := aValue</body>
-
-<body package="Amqp">proxyName		^proxyName</body>
-
-<body package="Amqp">headers		^headers</body>
-
-<body package="Amqp">broadcast		^broadcast</body>
-
-<body package="Amqp">headers: aValue		headers := aValue</body>
-
-<body package="Amqp">durable		^durable</body>
-
-<body package="Amqp">dataName		^dataName</body>
-
-<body package="Amqp">dataName: aValue		dataName := aValue</body>
-
-<body package="Amqp">broadcast: aValue		broadcast := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp08TunnelProperties</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecClassId		^110</body>
-
-<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	headers isNil ifFalse: [qFlags := qFlags bitOr: 32768].	proxyName isNil ifFalse: [qFlags := qFlags bitOr: 16384].	dataName isNil ifFalse: [qFlags := qFlags bitOr: 8192].	durable isNil ifFalse: [qFlags := qFlags bitOr: 4096].	broadcast isNil ifFalse: [qFlags := qFlags bitOr: 2048].	self encodeFlags: qFlags on: codec.	headers isNil ifFalse: [codec nextTablePut: headers].	proxyName isNil ifFalse: [codec nextShortstrPut: proxyName].	dataName isNil ifFalse: [codec nextShortstrPut: dataName].	durable isNil ifFalse: [codec nextOctetPut: durable].	broadcast isNil ifFalse: [codec nextOctetPut: broadcast]</body>
-
-<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 16384) = 0		ifTrue: [proxyName := nil]		ifFalse: [proxyName := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [dataName := nil]		ifFalse: [dataName := codec nextShortstr].	(qFlags bitAnd: 4096) = 0		ifTrue: [durable := nil]		ifFalse: [durable := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [broadcast := nil]		ifFalse: [broadcast := codec nextOctet]</body>
-</methods>
-
-
-<methods>
-<class-id>Amqp091BasicProperties</class-id> <category>accessing</category>
-
-<body package="Amqp">userId		^userId</body>
-
-<body package="Amqp">headers: aValue		headers := aValue</body>
-
-<body package="Amqp">appId: aValue		appId := aValue</body>
-
-<body package="Amqp">messageId		^messageId</body>
-
-<body package="Amqp">replyTo: aValue		replyTo := aValue</body>
-
-<body package="Amqp">contentEncoding: aValue		contentEncoding := aValue</body>
-
-<body package="Amqp">headers		^headers</body>
-
-<body package="Amqp">reserved		^reserved</body>
-
-<body package="Amqp">contentType		^contentType</body>
-
-<body package="Amqp">appId		^appId</body>
-
-<body package="Amqp">type		^type</body>
-
-<body package="Amqp">replyTo		^replyTo</body>
-
-<body package="Amqp">correlationId: aValue		correlationId := aValue</body>
-
-<body package="Amqp">type: aValue		type := aValue</body>
-
-<body package="Amqp">contentEncoding		^contentEncoding</body>
-
-<body package="Amqp">priority: aValue		priority := aValue</body>
-
-<body package="Amqp">deliveryMode		^deliveryMode</body>
-
-<body package="Amqp">userId: aValue		userId := aValue</body>
-
-<body package="Amqp">priority		^priority</body>
-
-<body package="Amqp">timestamp: aValue		timestamp := aValue</body>
-
-<body package="Amqp">correlationId		^correlationId</body>
-
-<body package="Amqp">timestamp		^timestamp</body>
-
-<body package="Amqp">deliveryMode: aValue		deliveryMode := aValue</body>
-
-<body package="Amqp">messageId: aValue		messageId := aValue</body>
-
-<body package="Amqp">reserved: aValue		reserved := aValue</body>
-
-<body package="Amqp">expiration		^expiration</body>
-
-<body package="Amqp">expiration: aValue		expiration := aValue</body>
-
-<body package="Amqp">contentType: aValue		contentType := aValue</body>
-</methods>
-
-<methods>
-<class-id>Amqp091BasicProperties</class-id> <category>AMQP codec</category>
-
-<body package="Amqp">codecClassId		^60</body>
-
-<body package="Amqp">encodeOn: codec		| qFlags |	qFlags := 0.	contentType isNil ifFalse: [qFlags := qFlags bitOr: 32768].	contentEncoding isNil ifFalse: [qFlags := qFlags bitOr: 16384].	headers isNil ifFalse: [qFlags := qFlags bitOr: 8192].	deliveryMode isNil ifFalse: [qFlags := qFlags bitOr: 4096].	priority isNil ifFalse: [qFlags := qFlags bitOr: 2048].	correlationId isNil ifFalse: [qFlags := qFlags bitOr: 1024].	replyTo isNil ifFalse: [qFlags := qFlags bitOr: 512].	expiration isNil ifFalse: [qFlags := qFlags bitOr: 256].	messageId isNil ifFalse: [qFlags := qFlags bitOr: 128].	timestamp isNil ifFalse: [qFlags := qFlags bitOr: 64].	type isNil ifFalse: [qFlags := qFlags bitOr: 32].	userId isNil ifFalse: [qFlags := qFlags bitOr: 16].	appId isNil ifFalse: [qFlags := qFlags bitOr: 8].	reserved isNil ifFalse: [qFlags := qFlags bitOr: 4].	self encodeFlags: qFlags on: codec.	contentType isNil ifFalse: [codec nextShortstrPut: contentType].	contentEncoding isNil ifFalse: [codec nextShortstrPut: contentEncoding].	headers isNil ifFalse: [codec nextTablePut: headers].	deliveryMode isNil ifFalse: [codec nextOctetPut: deliveryMode].	priority isNil ifFalse: [codec nextOctetPut: priority].	correlationId isNil ifFalse: [codec nextShortstrPut: correlationId].	replyTo isNil ifFalse: [codec nextShortstrPut: replyTo].	expiration isNil ifFalse: [codec nextShortstrPut: expiration].	messageId isNil ifFalse: [codec nextShortstrPut: messageId].	timestamp isNil ifFalse: [codec nextTimestampPut: timestamp].	type isNil ifFalse: [codec nextShortstrPut: type].	userId isNil ifFalse: [codec nextShortstrPut: userId].	appId isNil ifFalse: [codec nextShortstrPut: appId].	reserved isNil ifFalse: [codec nextShortstrPut: reserved]</body>
-
-<body package="Amqp">decodeFrom: codec		| qFlags |	qFlags := self decodeFlagsFrom: codec.	(qFlags bitAnd: 32768) = 0		ifTrue: [contentType := nil]		ifFalse: [contentType := codec nextShortstr].	(qFlags bitAnd: 16384) = 0		ifTrue: [contentEncoding := nil]		ifFalse: [contentEncoding := codec nextShortstr].	(qFlags bitAnd: 8192) = 0		ifTrue: [headers := nil]		ifFalse: [headers := codec nextTable].	(qFlags bitAnd: 4096) = 0		ifTrue: [deliveryMode := nil]		ifFalse: [deliveryMode := codec nextOctet].	(qFlags bitAnd: 2048) = 0		ifTrue: [priority := nil]		ifFalse: [priority := codec nextOctet].	(qFlags bitAnd: 1024) = 0		ifTrue: [correlationId := nil]		ifFalse: [correlationId := codec nextShortstr].	(qFlags bitAnd: 512) = 0		ifTrue: [replyTo := nil]		ifFalse: [replyTo := codec nextShortstr].	(qFlags bitAnd: 256) = 0		ifTrue: [expiration := nil]		ifFalse: [expiration := codec nextShortstr].	(qFlags bitAnd: 128) = 0		ifTrue: [messageId := nil]		ifFalse: [messageId := codec nextShortstr].	(qFlags bitAnd: 64) = 0		ifTrue: [timestamp := nil]		ifFalse: [timestamp := codec nextTimestamp].	(qFlags bitAnd: 32) = 0		ifTrue: [type := nil]		ifFalse: [type := codec nextShortstr].	(qFlags bitAnd: 16) = 0		ifTrue: [userId := nil]		ifFalse: [userId := codec nextShortstr].	(qFlags bitAnd: 8) = 0		ifTrue: [appId := nil]		ifFalse: [appId := codec nextShortstr].	(qFlags bitAnd: 4) = 0		ifTrue: [reserved := nil]		ifFalse: [reserved := codec nextShortstr]</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpSpecCompiler class</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">methodNameFor: aString		| first |	first := true.	^self		joinPieces:			(aString substrings				collect:					[:each | 					first						ifTrue:							[first := false.							each]						ifFalse: [each capitalized]])</body>
-
-<body package="Amqp">joinPieces: strings		| s |	s := WriteStream with: ''.	strings do: [:each | s nextPutAll: each].	^s contents</body>
-
-<body package="Amqp">capitalizedNameFor: aString		^self joinPieces: (aString substrings collect: [:each | each capitalized])</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpSpecCompiler</class-id> <category>accessing</category>
-
-<body package="Amqp">subclassOf: aSuperClass named: aString instanceVariables: aCollection		| ivs n c |	ivs := WriteStream with: ''.	n := self classNameFor: aString.	aCollection		do: [:each | ivs nextPutAll: each]		separatedBy: [ivs space].	c := aSuperClass		subclass: n		instanceVariableNames: ivs contents		classVariableNames: ''		poolDictionaries: ''		category: definitionCategory.	^c</body>
-
-<body package="Amqp">classNameFor: aString		^(prefix		,			(AmqpSpecCompiler				joinPieces: (aString substrings collect: [:each | each capitalized])))		asSymbol</body>
-
-<body package="Amqp">spec		^spec</body>
-
-<body package="Amqp">definitionCategory: anObject		definitionCategory := anObject</body>
-
-<body package="Amqp">reservedValueForDomain: domain		domain = 'octet' ifTrue: [^'0'].	domain = 'short' ifTrue: [^'0'].	domain = 'long' ifTrue: [^'0'].	domain = 'longlong' ifTrue: [^'0'].	^'nil'</body>
-
-<body package="Amqp">acceptableResponseClassesSource: m		| s |	s := WriteStream with:			'acceptableResponseClasses	^ #('.	m responses		do:			[:each | 			s				nextPutAll: '		' , (self classNameFor: m classDef name , ' ' , each);				cr].	s nextPutAll: '	)'.	^s contents</body>
-
-<body package="Amqp">initializerSource		| source |	source := WriteStream with:			'initialize	super initialize.'.	spec classDefinitions		valuesDo:			[:each | 			each hasProperties				ifTrue:					[source						nextPutAll: '	classIds at: ';						nextPutAll: each index asString;						nextPutAll: ' put: ';						nextPutAll: (self classNameFor: each propertiesName);						nextPut: $.;						nextPut: Character cr]].	spec allMethods		do:			[:each | 			source				nextPutAll: '	methodIds at: ';				nextPutAll: each methodId asString;				nextPutAll: ' put: ';				nextPutAll: (self classNameFor: each classDef name , ' ' , each name);				nextPut: $.;				nextPut: Character cr].	^source contents</body>
-
-<body package="Amqp">prefix		^prefix</body>
-
-<body package="Amqp">generateMethod: def		| c fs |	fs := def fields reject: [:each | each isReserved].	c := self		subclassOf: AmqpProtocolMethod		named: def classDef name , ' ' , def name		instanceVariables: (fs collect: [:each | each methodName]).	fs		do:			[:f | 			c				compile: f methodName , ' ^ ' , f methodName				classified: 'accessing'.			c				compile: f methodName , ': aValue ' , f methodName , ' := aValue.'				classified: 'accessing'].	c		compile: 'codecMethodId ^ ' , def methodId asString		classified: 'AMQP codec'.	c		compile: 'hasContents ^ ' , def hasContents asString		classified: 'AMQP codec'.	c		compile: (self acceptableResponseClassesSource: def)		classified: 'AMQP codec'.	c		compile: (self decodeMethodSource: def)		classified: 'AMQP codec'.	c		compile: (self encodeMethodSource: def)		classified: 'AMQP codec'</body>
-
-<body package="Amqp">decodeMethodSource: m		| s bitindex |	s := WriteStream with:			'decodeFrom: codec	| bitBuffer |'.	bitindex := nil.	m fields		do:			[:f | 			f domain = 'bit'				ifTrue:					[bitindex ifNil: [bitindex := 0].					bitindex &gt;= 8 ifTrue: [bitindex := 0].					bitindex = 0						ifTrue:							[s								nextPutAll: '	bitBuffer := codec nextOctet.';								cr].					f isReserved						ifFalse:							[s								nextPutAll:									'	' , f methodName , ' := (bitBuffer bitAnd: '										, (1 bitShift: bitindex) asString , ') ~= 0.'.							s cr].					bitindex := bitindex + 1]				ifFalse:					[bitindex := nil.					s						nextPutAll: '	' , (self decodeFieldSource: f);						cr]].	^s contents</body>
-
-<body package="Amqp">encodeMethodSource: m		| s bitindex finishbits |	s := WriteStream with:			'encodeOn: codec	| bitBuffer |'.	bitindex := nil.	finishbits := [bitindex notNil		ifTrue:			[s				nextPutAll: '	codec nextOctetPut: bitBuffer.';				cr]].	m fields		do:			[:f | 			f domain = 'bit'				ifTrue:					[bitindex						ifNil:							[bitindex := 0.							s								nextPutAll: '	bitBuffer := 0.';								cr].					bitindex &gt;= 8						ifTrue:							[finishbits value.							s								nextPutAll: '	bitBuffer := 0.';								cr.							bitindex := 0].					f isReserved						ifFalse:							[s								nextPutAll:									'	(' , f methodName , ' ifNil: [false])' ,											' ifTrue: [bitBuffer := bitBuffer bitOr: '										, (1 bitShift: bitindex) asString , '].'.							s cr].					bitindex := bitindex + 1]				ifFalse:					[finishbits value.					bitindex := nil.					s						nextPutAll: '	' , (self encodeFieldSource: f);						cr]].	finishbits value.	^s contents</body>
-
-<body package="Amqp">generateClass: def		self generateContentProperties: def.	def methods valuesDo: [:each | self generateMethod: each]</body>
-
-<body package="Amqp">encodePropertiesSource: c		| s |	s := WriteStream with:			'encodeOn: codec	| qFlags |	qFlags := 0.'.	c		propertiesAndMasksDo:			[:f :bitMask | 			f isReserved				ifFalse:					[f domain = 'bit'						ifTrue:							[s								nextPutAll:										'	' , f methodName , ' ifTrue: [qFlags := qFlags bitOr: '												, bitMask asString , '].';								cr]						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' isNil ifFalse: [qFlags := qFlags bitOr: '												, bitMask asString , '].';								cr]]].	s		cr;		nextPutAll: '	self encodeFlags: qFlags on: codec.';		cr;		cr.	c		propertiesAndMasksDo:			[:f :bitMask | 			f isReserved				ifFalse:					[f domain = 'bit'						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' isNil ifFalse: [' , (self encodeFieldSource: f) ,													'].';								cr]]].	^s contents</body>
-
-<body package="Amqp">spec: anObject		spec := anObject.	definitionCategory := 'Amqp-Protocol-' , spec versionString.	prefix := 'Amqp' , spec versionString</body>
-
-<body package="Amqp">decodePropertiesSource: c		| s |	s := WriteStream with:			'decodeFrom: codec	| qFlags |	qFlags := self decodeFlagsFrom: codec.'.	c		propertiesAndMasksDo:			[:f :bitMask | 			f domain = 'bit'				ifTrue:					[f isReserved						ifFalse:							[s								nextPutAll:										'	' , f methodName , ' := (qFlags bitAnd: ' , bitMask asString , ') ~= 0.';								cr]]				ifFalse:					[s nextPutAll: '	(qFlags bitAnd: ' , bitMask asString , ') = 0 ifTrue: ['.					f isReserved ifFalse: [s nextPutAll: f methodName , ' := nil'].					s						nextPutAll: '] ifFalse: [' , (self decodeFieldSource: f) , '].';						cr]].	^s contents</body>
-
-<body package="Amqp">definitionCategory		^definitionCategory</body>
-
-<body package="Amqp">encodeFieldSource: f		^'codec next' , f domainName , 'Put: '		,			(f isReserved				ifTrue: [self reservedValueForDomain: f domain]				ifFalse: [f methodName]) , '.'</body>
-
-<body package="Amqp">generateEverything		| p pc |	p := self subclassOf: AmqpProtocol named: '' instanceVariables: #().	pc := p class.	pc		compile: 'portNumber ^' , spec portNumber asString		classified: 'AMQP protocol'.	pc		compile: 'majorVersion ^' , spec majorVersion asString		classified: 'AMQP protocol'.	pc		compile: 'minorVersion ^' , spec minorVersion asString		classified: 'AMQP protocol'.	pc		compile: 'revision ^' , spec revision asString		classified: 'AMQP protocol'.	pc		compile:			'isObsoleteProtocolVariant ^' , spec isObsoleteProtocolVariant asString		classified: 'AMQP protocol'.	spec constants		keysAndValuesDo:			[:name :value | 			pc				compile: (AmqpSpecCompiler methodNameFor: name) , ' ^' , value asString				classified: 'AMQP protocol constants'].	spec classDefinitions valuesDo: [:def | self generateClass: def].	pc		compile: self initializerSource		classified: 'class initialization'.	spec allMethods		do:			[:def | 			pc				compile:					(AmqpSpecCompiler						methodNameFor: def classDef name , ' ' , def name , ' method') ,							' ^ ' , (self classNameFor: def classDef name , ' ' , def name)				classified: 'AMQP methods'].	spec classDefinitions		valuesDo:			[:def | 			def hasProperties				ifTrue:					[pc						compile:							(AmqpSpecCompiler methodNameFor: def propertiesName , ' class') , ' ^ '								, (self classNameFor: def propertiesName)						classified: 'AMQP content properties']]</body>
-
-<body package="Amqp">generateContentProperties: def		| c fs |	def hasProperties ifFalse: [^self].	fs := def contentProperties reject: [:each | each isReserved].	c := self		subclassOf: AmqpProtocolProperties		named: def propertiesName		instanceVariables: (fs collect: [:each | each methodName]).	fs		do:			[:f | 			c				compile: f methodName , ' ^ ' , f methodName				classified: 'accessing'.			c				compile: f methodName , ': aValue ' , f methodName , ' := aValue.'				classified: 'accessing'].	c		compile: 'codecClassId ^ ' , def index asString		classified: 'AMQP codec'.	c		compile: (self decodePropertiesSource: def)		classified: 'AMQP codec'.	c		compile: (self encodePropertiesSource: def)		classified: 'AMQP codec'</body>
-
-<body package="Amqp">prefix: anObject		prefix := anObject</body>
-
-<body package="Amqp">wipePackage		(self		confirm:			'Are you sure you want to erase all classes in package ' ,					definitionCategory , '?') ifFalse: [^self].	(Class allSubInstances		select: [:each | each category = definitionCategory])		do: [:each | each removeFromSystem]</body>
-
-<body package="Amqp">decodeFieldSource: f		^(f isReserved		ifTrue: ['']		ifFalse: ['' , f methodName , ' := ']) , 'codec next' , f domainName ,			'.'</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpSpecification class</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">official08		^self loadFrom:			'http://jira.amqp.org/confluence/download/attachments/720900/amqp0-8.stripped.xml?version=1'</body>
-
-<body package="Amqp">normalizeName: aString		| s |	s := aString asLowercase.	s := s copyReplaceAll: '-' with: ' '.	s := s copyReplaceAll: '_' with: ' '.	^s</body>
-
-<body package="Amqp">loadFrom: aUrl		^self new loadFromXml: aUrl asUrl retrieveContents contents readStream</body>
-
-<body package="Amqp">official091		^self loadFrom:			'http://jira.amqp.org/confluence/download/attachments/720900/amqp0-9-1.stripped.xml?version=1'</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpSpecification</class-id> <category>accessing</category>
-
-<body package="Amqp">portNumber		^portNumber</body>
-
-<body package="Amqp">portNumber: anObject		portNumber := anObject</body>
-
-<body package="Amqp">classDefinitions: anObject		classDefinitions := anObject</body>
-
-<body package="Amqp">majorVersion		^majorVersion</body>
-
-<body package="Amqp">domains: anObject		domains := anObject</body>
-
-<body package="Amqp">majorVersion: anObject		majorVersion := anObject</body>
-
-<body package="Amqp">revision: anObject		revision := anObject</body>
-
-<body package="Amqp">domains		^domains</body>
-
-<body package="Amqp">constants: anObject		constants := anObject</body>
-
-<body package="Amqp">allMethods		^(classDefinitions values collect: [:each | each methods values])		concatenation</body>
-
-<body package="Amqp">minorVersion: anObject		minorVersion := anObject</body>
-
-<body package="Amqp">minorVersion		^minorVersion</body>
-
-<body package="Amqp">resolveDomain: aString		^domains at: (AmqpSpecification normalizeName: aString)</body>
-
-<body package="Amqp">classAt: className		^classDefinitions at: className</body>
-
-<body package="Amqp">revision		^revision</body>
-
-<body package="Amqp">classDefinitions		^classDefinitions</body>
-
-<body package="Amqp">constants		^constants</body>
-
-<body package="Amqp">class: className method: methodName		^(self classAt: className) methods at: methodName</body>
-</methods>
-
-<methods>
-<class-id>AmqpSpecification</class-id> <category>as yet unclassified</category>
-
-<body package="Amqp">loadFromXml: aStream		| d a |	d := XMLDOMParser parseDocumentFrom: aStream.	a := d firstTagNamed: #amqp.	majorVersion := (a attributeAt: #major) asInteger.	minorVersion := (a attributeAt: #minor) asInteger.	revision := (a		attributeAt: #revision		ifAbsent: [0]) asInteger.	"Special-case a mistake in the 0-8 XML."	(majorVersion = 8 and: [minorVersion = 0])		ifTrue:			[majorVersion := 0.			minorVersion := 8].	portNumber := (a attributeAt: #port) asInteger.	constants := Dictionary new.	a		tagsNamed: #constant		childrenDo:			[:each | 			constants				at: (AmqpSpecification normalizeName: (each attributeAt: #name))				put: (each attributeAt: #value) asInteger].	domains := Dictionary new.	self insertBaseDomains.	a		tagsNamed: #domain		childrenDo:			[:each | 			domains				at: (AmqpSpecification normalizeName: (each attributeAt: #name))				put: (AmqpSpecification normalizeName: (each attributeAt: #type))].	classDefinitions := Dictionary new.	a		tagsNamed: #class		do:			[:each | 			(AmqpClassDefinition new)				loadFrom: each;				installOn: classDefinitions].	self resolve</body>
-
-<body package="Amqp">versionString		^majorVersion asString , minorVersion asString		,			(revision &gt; 0				ifTrue: [revision asString]				ifFalse: [''])</body>
-
-<body package="Amqp">insertBaseDomains	"For the benefit of the 0-8 spec, which is missing these ground definitions."		#('octet' 'shortstr' 'longstr' 'short' 'long' 'longlong' 'bit' 'table' 'timestamp')		do: [:d | domains at: d put: d]</body>
-
-<body package="Amqp">isObsoleteProtocolVariant		^majorVersion = 0 and: [minorVersion &lt; 9]</body>
-
-<body package="Amqp">resolve		classDefinitions valuesDo: [:each | each resolveUsing: self]</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpProtocolMismatchError</class-id> <category>accessing</category>
-
-<body package="Amqp">serverProtocolHeader		^serverProtocolHeader</body>
-
-<body package="Amqp">serverProtocolHeader: anObject		serverProtocolHeader := anObject</body>
-</methods>
-
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP local transactions</category>
-
-<body package="Amqp">txSelect		^self rpc: protocolClass txSelectMethod new</body>
-
-<body package="Amqp">txCommit		^self rpc: protocolClass txCommitMethod new</body>
-
-<body package="Amqp">txRollback		^self rpc: protocolClass txRollbackMethod new</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP binding management</category>
-
-<body package="Amqp">queueBind: queue exchange: exchange routingKey: routingKey arguments: aDictionary		^self		rpc:			((protocolClass queueBindMethod new)				queue: queue;				exchange: exchange;				routingKey: routingKey;				arguments: aDictionary)</body>
-
-<body package="Amqp">queueUnbind: queue exchange: exchange routingKey: routingKey		^self queueUnbind: queue exchange: exchange routingKey: routingKey		arguments: nil</body>
-
-<body package="Amqp">queueUnbind: queue exchange: exchange routingKey: routingKey arguments: aDictionary		^self		rpc:			((protocolClass queueUnbindMethod new)				queue: queue;				exchange: exchange;				routingKey: routingKey;				arguments: aDictionary)</body>
-
-<body package="Amqp">queueBind: queue exchange: exchange routingKey: routingKey		^self queueBind: queue exchange: exchange routingKey: routingKey		arguments: nil</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>accessing</category>
-
-<body package="Amqp">handler: h		handler := h.	handler addDependent: self.	callbacks := Dictionary new.	protocolClass := handler connection protocolClass.	handler		mapEvent: protocolClass channelCloseMethod		to: self		selector: #handleChannelClose:.	handler		mapEvent: protocolClass basicDeliverMethod		to: self		selector: #handleBasicDeliver:.	handler		mapEvent: protocolClass basicReturnMethod		to: self		selector: #handleBasicReturn:.	handler		mapEvent: protocolClass channelFlowMethod		to: self		selector: #handleChannelFlow:.	self rpc: protocolClass channelOpenMethod new</body>
-
-<body package="Amqp">handler		^handler</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP queue management</category>
-
-<body package="Amqp">queueDeclare: queueName durable: durable exclusive: exclusive autoDelete: autoDelete passive: passive arguments: aDictionary		^self		rpc:			((protocolClass queueDeclareMethod new)				queue: queueName;				passive: passive;				durable: durable;				exclusive: exclusive;				autoDelete: autoDelete;				arguments: aDictionary)</body>
-
-<body package="Amqp">queuePurge: queue		^self rpc: (protocolClass queuePurgeMethod new queue: queue)</body>
-
-<body package="Amqp">queueDelete: queueName		^self queueDelete: queueName ifUnused: false ifEmpty: false</body>
-
-<body package="Amqp">queueDeclare: queueName		^self queueDeclare: queueName durable: false exclusive: false autoDelete:			false passive: false arguments: nil</body>
-
-<body package="Amqp">queueDelete: queueName ifUnused: ifUnused ifEmpty: ifEmpty		^self		rpc:			((protocolClass queueDeleteMethod new)				queue: queueName;				ifUnused: ifUnused;				ifEmpty: ifEmpty)</body>
-
-<body package="Amqp">queueDeclare: queueName durable: durable		^self queueDeclare: queueName durable: durable exclusive: false		autoDelete: false passive: false arguments: nil</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP receiving messages</category>
-
-<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck exclusive: exclusive consumerTag: aString arguments: aDictionary		| result |	result := self		rpc:			((protocolClass basicConsumeMethod new)				queue: queue;				consumerTag: aString;				noAck: noAck;				exclusive: exclusive;				arguments: aDictionary).	callbacks		at: result method consumerTag		put: anObject -&gt; aSymbol.	^result method consumerTag</body>
-
-<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck		^self consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck		exclusive: false consumerTag: ''</body>
-
-<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol		^self consumeFrom: queue callback: anObject selector: aSymbol noAck: false		exclusive: false consumerTag: ''</body>
-
-<body package="Amqp">basicReject: anInteger requeue: aBoolean		self		rpc:			((protocolClass basicRejectMethod new)				deliveryTag: anInteger;				requeue: aBoolean)</body>
-
-<body package="Amqp">prefetchCount: prefetchCount		^self prefetchCount: prefetchCount prefetchSize: 0 global: false</body>
-
-<body package="Amqp">basicGet: aString noAck: aBoolean		| result |	result := self		rpc:			((protocolClass basicGetMethod new)				queue: aString;				noAck: aBoolean).	(result method isKindOf: protocolClass basicGetOkMethod) ifFalse: [^nil].	^result</body>
-
-<body package="Amqp">basicRecover: shouldRequeue		^self rpc: (protocolClass basicRecoverMethod new requeue: shouldRequeue)</body>
-
-<body package="Amqp">basicAck: anInteger		self basicAck: anInteger multiple: false</body>
-
-<body package="Amqp">cancelConsumer: consumerTag		self rpc: (protocolClass basicCancelMethod new consumerTag: consumerTag).	callbacks		removeKey: consumerTag		ifAbsent: []</body>
-
-<body package="Amqp">consumeFrom: queue callback: anObject selector: aSymbol noAck: noAck exclusive: exclusive consumerTag: aString		| result |	result := self		rpc:			((protocolClass basicConsumeMethod new)				queue: queue;				consumerTag: aString;				noAck: noAck;				exclusive: exclusive).	callbacks		at: result method consumerTag		put: anObject -&gt; aSymbol.	^result method consumerTag</body>
-
-<body package="Amqp">basicRecover		^self basicRecover: false</body>
-
-<body package="Amqp">basicGet: aString		^self basicGet: aString noAck: false</body>
-
-<body package="Amqp">prefetchCount: prefetchCount prefetchSize: prefetchSize global: aBoolean		^self		rpc:			((protocolClass basicQosMethod new)				prefetchSize: prefetchSize;				prefetchCount: prefetchCount;				global: aBoolean)</body>
-
-<body package="Amqp">basicAck: anInteger multiple: aBoolean		self		rpc:			((protocolClass basicAckMethod new)				deliveryTag: anInteger;				multiple: aBoolean)</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP closing</category>
-
-<body package="Amqp">closeReason		^handler closeReason</body>
-
-<body package="Amqp">close		| c |	handler closeReason		ifNil:			[c := (protocolClass channelCloseMethod new)				replyCode: protocolClass replySuccess;				replyText: 'Normal close';				classId: 0;				methodId: 0.			handler rpc: c.			handler internalClose: c]</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP server-generated events</category>
-
-<body package="Amqp">handleChannelClose: cmd		handler internalClose: cmd method.	handler connection		sendMethod: protocolClass channelCloseOkMethod new		onChannel: handler channelNumber	"TODO: notify callbacks of closure"</body>
-
-<body package="Amqp">handleBasicDeliver: cmd		| a |	a := callbacks at: cmd method consumerTag.	a key		perform: a value		with: cmd</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP sending messages</category>
-
-<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey properties: aBasicProperties		^self basicPublish: aByteArray exchange: exchangeName routingKey:			routingKey properties: aBasicProperties mandatory: false immediate:			false</body>
-
-<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey		^self		basicPublish: aByteArray		exchange: exchangeName		routingKey: routingKey		properties: protocolClass basicPropertiesClass new</body>
-
-<body package="Amqp">basicPublish: aByteArray exchange: exchangeName routingKey: routingKey properties: aBasicProperties mandatory: mandatory immediate: immediate		handler connection		sendMethod:			((protocolClass basicPublishMethod new)				exchange: exchangeName;				routingKey: routingKey;				mandatory: mandatory;				immediate: immediate)		properties: aBasicProperties		body: aByteArray		onChannel: handler channelNumber</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP exchange management</category>
-
-<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable autoDelete: autoDelete passive: passive arguments: aDictionary		^self		rpc:			((protocolClass exchangeDeclareMethod new)				exchange: exchangeName;				type: typeString;				passive: passive;				durable: durable;				autoDelete: autoDelete;				arguments: aDictionary)</body>
-
-<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable autoDelete: autoDelete passive: passive		^self exchangeDeclare: exchangeName type: typeString durable: durable		autoDelete: autoDelete passive: passive arguments: nil</body>
-
-<body package="Amqp">exchangeDeclare: exchangeName type: typeString		^self exchangeDeclare: exchangeName type: typeString durable: false		autoDelete: false passive: false arguments: nil</body>
-
-<body package="Amqp">exchangeDelete: exchangeName		^self exchangeDelete: exchangeName ifUnused: false</body>
-
-<body package="Amqp">exchangeDeclare: exchangeName type: typeString durable: durable		^self exchangeDeclare: exchangeName type: typeString durable: durable		autoDelete: false passive: false arguments: nil</body>
-
-<body package="Amqp">exchangeDelete: exchangeName ifUnused: aBoolean		^self		rpc:			((protocolClass exchangeDeleteMethod new)				exchange: exchangeName;				ifUnused: aBoolean)</body>
-</methods>
-
-<methods>
-<class-id>AmqpChannel</class-id> <category>AMQP private</category>
-
-<body package="Amqp">update: aSymbol		aSymbol == #channelHandlerClosed ifTrue: [self changed: #channelClosed].	^super update: aSymbol</body>
-
-<body package="Amqp">protocolClass		^protocolClass</body>
-
-<body package="Amqp">rpc: requestMethod		^handler rpc: requestMethod</body>
 </methods>
 
 
